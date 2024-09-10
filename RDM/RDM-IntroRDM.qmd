@@ -1,0 +1,203 @@
+---
+title: Introduction to research data management (RDM)
+
+bibliography: references.bib
+---
+
+RDM entails the organization/handling, storage, sharing and (short-long
+term) preservation of research data. This can include both physical
+objects/files and digital files (documents, images, audio, etc). Is an
+activity that is an activity in which (usually) scientists lack
+competence, but pivotal to ensure the quality and reproducibility of
+research results.
+
+::: {style="text-align: center;font-size: 100%"}
+![Image by
+https://datadryad.org/](images/dataset-structure.jpg){fig-alt="Example of two different file trees"
+fig-align="center"}
+:::
+
+## Reason to engage with RDM?
+
+### From a researchers perspective
+
+-   RDM provides competence in managing research data and make it
+    usable/reusable.
+-   RDM ensures the fidelity and and encourages the validation of
+    research findings.
+-   RDM Improves the efficiency of data collection, organization and
+    analysis.
+-   RDM upholds the professional/ethical commitment to research
+    integrity.
+
+### From a social perspective
+
+-   RDM complies with requirements from funding agencies and research
+    data management plans (DMPs).
+-   RDM maximizes open data sharing to benefit the society. See
+    [Tri-Agency Research Data Management
+    Policy](https://science.gc.ca/site/science/en/interagency-research-funding/policies-and-guidelines/research-data-management/tri-agency-research-data-management-policy-frequently-asked-questions)
+-   Open science enthusiast expect that journals will demand raw data
+    and analysis codes before publication.
+-   RDM helps to build trust in the scientific endeavor through
+    transparent open science practices.
+
+In summary, we can state that RDM is a matter of professional
+responsibility, ethical behavior, and commitment to best scientific
+practices.
+
+## FAIR principles
+
+RDM leverages on the FAIR principles (Findable, Accesible,
+Interoperable, and reusable).
+
+::: {style="text-align: center;font-size: 100%"}
+![Image by
+https://biosistemika.com/](images/FAIR_Principles.png){fig-alt="Cartoon of the FAIR principles"
+fig-align="center" width="500" height="250"}
+:::
+
+-   **Findable:** All data must carry identifiers and metadata that
+    facilitate its discovery.
+-   **Accessible:** The community should be able to access your data.
+-   **Interoperable:** The data must comply with specific standards
+    (i.e. standardized vocabularies) and formats (i.e. .csv, .tif).\
+-   **Reusable:** The data must be sufficiently described (and licensed)
+    to allow its reuse by the community.
+
+## Research project life cycle
+
+::: {style="text-align: center;font-size: 100%"}
+![Image by SZF TU
+Berlin](images/DataCycle.webp){fig-alt="Cartoon depicting the research data life cycle"
+fig-align="center" width="500" height="300"}
+:::
+
+As show in the illustration, the research data cycle is a systematic
+approach that guides researchers through the process of handling their
+data. Each phase is a gear that ensure the integrity, transparency, and
+sustainability of research data. Below, I briefly expose the main
+aspects of each phase:
+
+### Plan
+
+Planning entails clear prospects about how researchers will manage,
+store, and share their data. This step can include the following
+aspects:
+
+-   **Identifying data needs:** Determine which kind of data is
+    necessary or available to answer the research question.
+
+-   **Create a data management plan (DMP):** A DMP outlines how data
+    will be collected, documented, and preserved. It also refers to file
+    formats, suitable metadata standards, and long-term data sharing and
+    storage. The [DMP
+    Assistant](https://alliancecan.ca/en/services/research-data-management/dmp-assistant)
+    from the Research Data Alliance of Canada is an example of a DMP
+    tool.
+
+-   **Ethical considerations:** Researchers must address any ethical
+    requirements related to data privacy, consent, and security.
+
+### Collect
+
+In the collection phase, researchers focus on gathering the research
+data. Importantly, data can come from a variety of sources, including
+experiments (e.g., laboratory procedures or clinical trials); Fieldwork
+(e.g., poblational surveys or environmental measurements); Existing
+datasets (e.g., secondary data from repositories or historical
+archives). In all cases, it is crucial to collect data systematically
+and with defined standards to ensuring its accuracy and reliability. The
+quality of the collected data sets the foundation for meaningful
+analysis and reproducibility.
+
+### Store
+
+Once data is collected, it must be appropriately stored. This ensures
+data is protected from loss or corruption, or even unauthorized access
+if it entails restricted data. Some best practices for data storage
+include:
+
+-   **Systematic Backups:** This can include having multiple copies of
+    the data in different physical and digital locations.
+
+-   **Security:** In specific cases, sensitive data must be protected
+    for unauthorized access by encrypting files or restricting access to
+    authorized personnel.
+
+-   **File organization:** Employ adequate and consistent naming
+    convention to facilitate the location and understanding of data
+    files or dataset. This strategy is pivotal to fulfill both current
+    research needs and future reuse by others researchers or the public.
+
+### Analyze
+
+The process of analyzing data allows to draw conclusions from scientific
+research. Data analysis is one of the more complex phases of the
+research cycle, which includes:
+
+-   **Data cleaning:** Using reproducible workflow to handle an clean
+    data, removing possible errors, duplicates, and inconsistencies from
+    data tables or images sets.
+
+-   **Statistical analysis:** Use theoretically motivated statistical
+    models to perform scientific inference and identify patterns or
+    relationships in the data. Data analysis procedures must be
+    replicable. Therefore, approximations using open source/free
+    software like R or Python are recommended.
+
+-   **Visualization:** Creating visualization or plotting model results.
+
+### Describe
+
+After the preceding steps are completed, it is important to verify a
+comprehensive description of the data. This facilitates understanding
+research data contents and future re usability. In this phase,
+researchers can generate:
+
+-   **Metadata files:** Metadata is information about the data. This
+    comprises descriptions of how the data was collected, its structure,
+    and the available variables used. Overall, a metadata file or its
+    availability in a repository, ensures understanding or the dataset
+    and correct use for educational or research purposes.
+
+-   **Data documentation (readme file):** A readme file provide clear
+    descriptions of the dataset, which can include the methodology, any
+    limitations, and potential errors. Please see the following [readme
+    file](https://www.frdr-dfdr.ca/docs/txt/README.txt) template.
+
+### Archive and Sharing
+
+Archiving and sharing of research data involves its preservation for the
+long term in trusted data repositories. This phase allows that the data:
+
+-   **Is accessible:** Data is findable and accessible for reuse.
+
+-   **Data is preserved:** Long-term storage of research data prevent
+    data loss due to software or hardware obsolescence. Repositories
+    have systematic process to ensure that data is always accessible. By
+    archiving data, researchers contribute to the scientific community
+    by allowing others to build upon their work.
+
+-   **Licensing:** Applying appropriate licenses that define how others
+    can use the data.
+
+-   **Data citation:** Each dataset is assigned a DOI or other
+    identifier that enables proper citation.
+
+### Reuse
+
+Proper handling and documentation of a dataset allow its reuse for
+scientific or educational purposes. Likewise, reusing data implicates:
+
+-   **Validation of research findings:** Independent verification of
+    research findings and conclusions by reproducing research workflows.
+
+-   **Repurpose data:** Use the data for new research questions or in
+    combination with other datasets.
+
+-   **Build upon previous work:** Reusing research data may accelerate
+    scientific discovery by reducing duplication of efforts, relying on
+    irreproducible research, and facilitating meta-analysis. Indeed,
+    data reuse maximizes the value of the original research and
+    contributes to the cumulative growth of knowledge.

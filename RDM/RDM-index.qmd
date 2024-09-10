@@ -1,0 +1,84 @@
+---
+title: Research Data Management (RDM)
+editor: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+## An apealing context: Reproducibility/ethical crisis in science
+
+Science faces a reproducibility and ethical crisis that post significant
+threats to the credibility of scientific research and the management of
+public funds. Over the last decades, a growing body of evidence has
+demonstrated that many research findings irreproducible, which calls
+into question the transparency, integrity, and rigor of the scientific
+process itself.
+
+Reproducibility refers to the ability of independent researchers to
+reproduce (using the same methods) published scientific results. It is a
+cornerstone of scientific rigor, ensuring that findings are robust and
+not the result of chance, bias, or methodological errors. However,
+several high-profile studies have highlighted the alarming situation.
+For instance, the Reproducibility Project in psychology revealed that
+only 39% of 100 experimental studies could be successfully replicated
+[@estimati2015].
+
+::: {style="text-align: center;font-size: 100%"}
+![Reproducibility crisis in science. Image modified from
+[@baker2016]](images/crisis1.png){fig-alt="Illustration showing articles and opinion of scientists regarding the reproducibility crisis" fig-align="center"}
+:::
+
+Years before, in 2012, Begley and Ellis reported that only 11% of
+preclinical studies in cancer could be reproduced. This indicated that
+biomedical findings are not be as reliable as the public (and
+researchers) think [@begley2012]. Nonetheless, this circumstance is not
+confined to specific disciplines but is a systematic problem widespread
+across the whole scientific world.
+
+# Where does this crisis come from?
+
+::: {style="text-align: center;font-size: 100%"}
+![Causes of the reproducibility
+crisis](images/crisis.png){fig-alt="Illustration showing some of the most relevant causes of irreproducible science" fig-align="center"}
+:::
+
+This a a multifactor crisis that include malpractices at different
+levels. For instance, we can enumerate:
+
+1.  **Publication Bias:** Just (misnamed) positive results are
+    published, skewing the scientific literature toward artificial
+    findings.
+
+2.  **P-Hacking and data manipulation\>** Many researchers manipulate
+    their data or statistical analyses to produce (once more misnamed)
+    significant results due to the (illogically entrenched) pressure to
+    publish/secure funding.
+
+3.  **Lack of transparency and selective reporting:** When scientists
+    selectively share certain data and hide other non-convenient results
+    that that run counter to the story they want to tell.
+
+4.  **Incompetence in research design and statistical analysis:**
+    Believe it or not, most scientists are incompetent in analyzing
+    their data and setup proper research designs.
+
+These and other issues exacerbates the crisis of reproducibility and
+call for pertinent actions to return to doing valuable science and not
+science focused on constructing convenient stories to inflate curricula
+and obtain academic promotions.
+
+# Research data management is the way
+
+The Role of Research Data Management (RDM) practices are crucial to
+addressing the reproducibility and ethical crisis modernen science faces
+[@munafò2017]. Endrosing effective RDM pratices promotes transparency,
+well-organized research data, and open sharing with the community. Some key
+RDM strategies include:
+
+- **Data Documentation and Metadata** to ensure datasets are appropriately understandable 
+- **Version Control and Data Provenance** to track changes in
+data over time and maintaining a clear record of its origin and
+modifications.
+- **Open Data Practices** to encourage the sharing of data,
+software, and protocols through repositories and open-access platforms.

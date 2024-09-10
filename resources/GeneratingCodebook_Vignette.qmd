@@ -1,0 +1,183 @@
+---
+title: "Generating a codebook for data tables"
+
+date: last-modified
+date-format: full
+
+author: 
+  - name: Daniel Manrique-Castano, Ph.D
+    orcid: 0000-0002-1912-1764
+    degrees:
+      - PhD
+    email: daniel.manrique-castano@alliancecan.ca
+    affiliations:
+      - name: Digital Research Alliance of Canada
+        department: Research Data Management
+        group: FRDR curation
+        
+Keywords:
+  - Research data management
+  - Codebook
+  - Data handling
+
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    toc-title: Table of contents
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    theme: spacelab
+    
+  typst:
+    papersize: us-letter
+    toc: true
+    toc-title: Table of contents
+    toc-depth: 2
+    number-sections: true
+    section-numbering: 1.1.a
+    columns: 1
+   
+css: styles.css
+bibliography: references.bib 
+editor: source
+---
+
+Codebooks, also called dictionaries, are files that provide information about the contents and structure of data files or tables. In other words, they allow users to understand what information is contained in a data file. Since a well-formed data table is limited in the amount of information it can contain, the source of the data and the definitions of the variables must be in a separate document. Here we use the `codebookr` package [@codebookr] to generate codebooks and dictionaries in .docx format.
+
+# Install and load packages
+
+We install the required packages:
+
+```{r}
+#| label: packages_install
+
+#install.packages("codebookr")
+#install.packages("dplyr")
+```
+
+And load them into the current R project/session:
+
+```{r}
+#| label: packages_load
+
+library(codebookr)
+library(dplyr, warn.conflicts = FALSE)
+```
+
+# Load and explore the dataset
+
+We use the `read.csv` function to load out example data table. This table correspond to research research data in experimental neuroscience borrowed from XXX
+
+```{r}
+#| label: data_load
+
+data <- read.csv("data/Example_Data1.csv")
+```
+
+Then, we use the `glimpse` function from the `dplyr` package [@dplyr] to get a summary description of our table:
+
+```{r}
+#| label: data_describe
+
+glimpse(data)
+```
+
+We identify 5 columns and 262 rows of data. The first four columns appear to be character values, and only the last column is numeric. Given the structure and labeling of the table, we cannot tell what its content or source is, which severely limits its reuse.
+
+# Generating a codebook file
+
+To describe the table and label the variables, we use the `codebook' function from the`codebookr' package. First, let's see what we get when we run the function on the unlabeled table. We run the function and print the results to a .docx file
+
+```{r}
+#| label: data_UnlabeledCodebook
+
+data_unlabeled_codebook <- codebook(data)
+print(data_unlabeled_codebook, "data_unlabeled_codebook.docx")
+```
+
+The resulting file (see your project folder) shows basic (appropriate) basic statistics for each variable column. However, there is still no information about the content. In the following, we will use the `cb_add_col_attributes` function to provide the relevant information for the codebook.
+
+First, to take full advantage of the function, we explicitly specify the type of variable for each column. This is where the author uses his knowledge of the data table (otherwise uknkown by the community):
+
+```{r}
+#| label: data_DefineTypes
+
+data$MouseID <- as.character(data$MouseID)
+data$DPI <- factor(data$DPI, levels = c("0D", "3D", "7D", "14D", "30D"))
+data$Region <- factor(data$Region, levels = c("Perilesion", "Striatum", "Cortex"))
+data$Gfap <- factor(data$Gfap, levels = c("Low", "High"))
+data$Pdgfrb <- as.numeric(data$Pdgfrb)
+
+glimpse(data)
+```
+
+We see that the variable types have changed. Now we pass the `cb_add_col_attributes` function to each of the variables to provide informative descriptions that would otherwise be unknown to the community.
+
+```{r}
+#| label: data_labels
+
+data_labeled_codebook <- data %>%
+  cb_add_col_attributes(
+    MouseID,
+    description = "Unique animal identification number",
+    source = "Experimental metadata",
+    col_type = "categorical"
+  ) %>%
+  
+  cb_add_col_attributes(
+    DPI,
+    description = "Days post-ischemia (time point in which the brain was harvested)",
+    source = "Experimental metadata",
+    col_type = "categorical"
+  ) %>%
+
+  cb_add_col_attributes(
+    Region,
+    description = "Brain region imaged in the microscope. Cortex = ischemic dorsolateral cortex, Striatum = ischemic ipsilateral striatum, Perilesion = Healthy perilesion in the dorsolateral cortex",
+    source = "Experimental metadata",
+    col_type = "categorical"
+  ) %>%
+
+  cb_add_col_attributes(
+    Gfap,
+    description = "Gfap density measured by point pattern analysis. Possible values = Low and High",
+    source = "PPA analysis - Link_To_Analysis_Notebook",
+    col_type = "categorical"
+  ) %>%
+  
+  cb_add_col_attributes(
+    Pdgfrb,
+    description = "Number of PDGFRB+ cells estimated by quadrant counts",
+    source = "PPA analysis - Link_To_Analysis_Notebook",
+    col_type = "numeric"
+  ) 
+  
+glimpse(data_labeled_codebook)
+```
+
+At this point, `glimpse' shows that the variable types have changed as intended. Finally, we pass the`codebook' function with additional arguments to describe the data table.
+
+```{r}
+data_codebooktext <- codebook(
+  df = data_labeled_codebook,
+  title = "Example_Data1.csv",
+  description = "This is the codebook for the Example_Data1.csv data table. This table is derived from a neuroscience experiment in which mice were subjected to cerebral ischemia and euthanized at different time points (DPI) to study brain recovery. These data correspond to brain sections stained with antibodies against PDGFR-B and GFAP. Using point pattern analysis (link to notebook), we quantified the number of PDGFR-B+ cells in regions of low and high GFAP density."
+)
+print(data_codebooktext, "data_labeled_codebook.docx")
+```
+
+In this case, the codebook will be exported to the project folder. It is highly recommended that the user set specific/descriptive file names and save in the appropriate folder according to the project structure.
+
+For alternative ways of labeling data using the `sjlaballed` [@labelled] and the `labelled` [@labelled-2] packages please check this \[post\](<https://www.pipinghotdata.com/posts/2022-09-13-the-case-for-variable-labels-in-r/>) and \[presentation slides\](<https://github.com/shannonpileggi/context-is-king>) by Shannon Pileggi.
+
+
+# References
+
+::: {#refs}
+:::
+
+```{r}
+sessionInfo()
+```
