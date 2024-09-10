@@ -6,25 +6,25 @@ bibliography: references.bib
 
 ## Make datasets understandable
 
-::::: {layout-ncol="2"}
-:::: {#first-column}
-Research data comes in many tastes and shapes (tables, images, videos, text). To facilitate collaboration and future reuse, datasets must be clear and easy to understand, not only by the original researchers, but specially by others who may encounter the data in the future. 
+::: {layout-ncol="2"}
+::: {#first-column}
+Research data comes in many tastes and shapes (tables, images, videos, text). To facilitate collaboration and future reuse, datasets must be clear and easy to understand, not only by the original researchers, but specially by others who may encounter the data in the future.
 
-The preceding implies [systematic procedures in data organization]{style="color:green;"}, that is, datasets should be structured logically, with labels that make them easy to understand. The files and variables, and their corresponding relationships must be clear enough by [external users]{style="color:green;"}.  
-::::
+The preceding implies [systematic procedures in data organization]{style="color:green;"}, that is, datasets should be structured logically, with labels that make them easy to understand. The files and variables, and their corresponding relationships must be clear enough by [external users]{style="color:green;"}.
+:::
 
-:::::::: {#second-column}
+::: {#second-column}
 ::: {style="text-align: center; font-size: 100%"}
 ![Others generally do not understand research raw data](images/DificultData.webp){fig-align="center" width="250" height="250"}
 :::
-::::
-:::::
+:::
+:::
 
-::: callout-tip 
+::: callout-tip
 Try to put yourself in the shoes of an [outside observer]{style="color:green;"} when structuring the data.
 :::
 
-## Best practices for organizing a dataset 
+## Best practices for organizing a dataset
 
 Organizing research data effectively is crucial for ensuring data management and producle reproducible science. Well-structured files and folders, along with consistent and meaningful naming conventions, can save significant time and effort in understanding the data. Below are listed some key principles for achieving an effective data organization:
 
@@ -34,41 +34,45 @@ A consistent and logical file naming convention allows researchers identify and 
 
 Here are five relevant aspects for naming files:
 
-- **Be descriptive yet concise:** In principle, file names should describe the content, date, or purpose of the file but should not be excessively long. The goal main goal is to provide logical information so that someone unfamiliar can understand what the file contains. Long names are difficult to understand and might generate problems when the complete file route is over 256 characters. 
+-   **Be descriptive yet concise:** In principle, file names should describe the content, date, or purpose of the file but should not be excessively long. The goal main goal is to provide logical information so that someone unfamiliar can understand what the file contains. Long names are difficult to understand and might generate problems when the complete file route is over 256 characters.
 
-::: callout-tip 
+::: callout-tip
 ## Example
 
 Instead of `data1.csv`, a research can name the file `climate_data_Jan2024.csv`, which specifies it is climate data collected in January 2024.
 :::
 
-- **Avoid special characters:** Some operating systems or software may not handle special characters in file names or generate unwanted workflows. It is recommended to [avoid spaces]{style="color:red;"}, slashes (/), backslashes (\), and symbols like !, @, and #.
+-   **Avoid special characters:** Some operating systems or software may not handle special characters in file names or generate unwanted workflows. It is recommended to [avoid spaces]{style="color:red;"}, slashes (/), backslashes (), and symbols like !, \@, and #.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-Instead of `climate_data_Jan2024#2.csv` use underscores or hyphens to indicate a characteristic or version: `climate_data_Jan2024_v2.0.csv` 
+
+Instead of `climate_data_Jan2024#2.csv` use underscores or hyphens to indicate a characteristic or version: `climate_data_Jan2024_v2.0.csv`
 :::
 
 Example:
 
-- **Use leading zeros in sequential numbering:** For files that includes numeration, include leading zeros to keep the files in the correct sequence. 
+-   **Use leading zeros in sequential numbering:** For files that includes numeration, include leading zeros to keep the files in the correct sequence.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-Use `climate_data_01.csv, climate_data_05.csv, climate_data_10.csv`, instead of `climate_data_1.csv, climate_data_5.csv, climate_data_10.csv` 
+
+Use `climate_data_01.csv, climate_data_05.csv, climate_data_10.csv`, instead of `climate_data_1.csv, climate_data_5.csv, climate_data_10.csv`
 :::
 
-- **Include versioning information (whe sutitable):** If your research plan envisages that data files may be updated or modified over time, include version numbers in the file name is useful. This facilitates identification of different versions and prevents accidental overwriting.
+-   **Include versioning information (whe sutitable):** If your research plan envisages that data files may be updated or modified over time, include version numbers in the file name is useful. This facilitates identification of different versions and prevents accidental overwriting.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-Use `survey_results_v1.0.csv, survey_results_v2.0.csv` 
+
+Use `survey_results_v1.0.csv, survey_results_v2.0.csv`
 :::
 
-- **Indicate date formats clearly:** When date is a relevant variable, always follow a standard format such as YYYY-MM-DD (year-month-day). This is the internationally recommended format and avoids confusion.
+-   **Indicate date formats clearly:** When date is a relevant variable, always follow a standard format such as YYYY-MM-DD (year-month-day). This is the internationally recommended format and avoids confusion.
 
-::: callout-tip 
+::: callout-tip
 ## Example
+
 experiment_notes_2024-01-15.docx instead of experiment_notes_15-01-2024.docx (which could cause confusion between day-month-year and month-day-year formats).
 :::
 
@@ -80,775 +84,222 @@ Files formats depend on the nature of the data and how it will be used. Common e
 
 #### a. Textual data
 
-- **Tabular data (.csv, .xls/.xlsx):** CSV (Comma-Separated Values) (i.e `dataset.csv`) is one of the most widely used (and preferred) formats for tabular data. This format is simple, lightweight, and supported by all data analysis software including spreadsheet programs (like Excel) and open statistical software (like R or Python). Other sorts of tabular data are Excel (.xls/.xlsx) files, widely used for storing spreadsheet data. Contrary to .csv files, Excel files support multiple sheets, complex formulas, and data visualization. However, they are a proprietary format, and long-term accessibility could be a concern if Excel becomes outdated (although unlikely). It is recommended to use non-proprietary formats like .csv or .tsv (tab-separated values) for long-term storage.
- 
-- **Plain text:** Plain text files (i.e `notes.txt`) are used for simple text data without any formatting. This approach is universally readable and have no dependencies on proprietary software.
+-   **Tabular data (.csv, .xls/.xlsx):** CSV (Comma-Separated Values) (i.e `dataset.csv`) is one of the most widely used (and preferred) formats for tabular data. This format is simple, lightweight, and supported by all data analysis software including spreadsheet programs (like Excel) and open statistical software (like R or Python). Other sorts of tabular data are Excel (.xls/.xlsx) files, widely used for storing spreadsheet data. Contrary to .csv files, Excel files support multiple sheets, complex formulas, and data visualization. However, they are a proprietary format, and long-term accessibility could be a concern if Excel becomes outdated (although unlikely). It is recommended to use non-proprietary formats like .csv or .tsv (tab-separated values) for long-term storage.
 
+-   **Plain text:** Plain text files (i.e `notes.txt`) are used for simple text data without any formatting. This approach is universally readable and have no dependencies on proprietary software.
 
 #### b. Geospatial data
 
-- **GeoTIFF (.tiff):** This format (i.e `map.tiff`) is a widely used format for storing raster geospatial data, including satellite imagery or digital elevation models. This format store not only the image data but also valuable georeferencing information, allowing the information to be used in geographic information systems (GIS). 
+-   **GeoTIFF (.tiff):** This format (i.e `map.tiff`) is a widely used format for storing raster geospatial data, including satellite imagery or digital elevation models. This format store not only the image data but also valuable georeferencing information, allowing the information to be used in geographic information systems (GIS).
 
-- **Shapefile (.shp/.dbf/.shx):** This format (i.e `study_area.shp`) is a common vector data format in GIS that stores geographic features like points, lines, and polygons. This format is widely supported, but consists of multiple related files, which must all be preserved together.
+-   **Shapefile (.shp/.dbf/.shx):** This format (i.e `study_area.shp`) is a common vector data format in GIS that stores geographic features like points, lines, and polygons. This format is widely supported, but consists of multiple related files, which must all be preserved together.
 
 #### c. Image Data
 
-- **TIFF (Tagged Image File Format):** TIFF is a non-proprietary format (i.e `microscopy_image.tiff`) for storing high-quality images. It is widely used in fields like microscopy, medical imaging, and remote sensing, as it supports lossless compression, ensuring that no data is lost when saving the file. Importantly, this format stores relevant image metadata.
+-   **TIFF (Tagged Image File Format):** TIFF is a non-proprietary format (i.e `microscopy_image.tiff`) for storing high-quality images. It is widely used in fields like microscopy, medical imaging, and remote sensing, as it supports lossless compression, ensuring that no data is lost when saving the file. Importantly, this format stores relevant image metadata.
 
-- **PNG (Portable Network Graphics):** This is a non-compressed image format (i.e `graph.png`) that is widely used for graphs. They are usually smaller than TIFFs, meaning some image quality is sacrificed in exchange for reduced file size.Different to TIFF, they do not store image metadata.
+-   **PNG (Portable Network Graphics):** This is a non-compressed image format (i.e `graph.png`) that is widely used for graphs. They are usually smaller than TIFFs, meaning some image quality is sacrificed in exchange for reduced file size.Different to TIFF, they do not store image metadata.
 
 #### d. Audio and Video Data
 
-- **WAV (Waveform Audio File Format):** This is a widely used format (i.e `audio.wav`) for storing uncompressed audio data, offering high fidelity. It is suitable for research audio files that requires precise data without compression.
+-   **WAV (Waveform Audio File Format):** This is a widely used format (i.e `audio.wav`) for storing uncompressed audio data, offering high fidelity. It is suitable for research audio files that requires precise data without compression.
 
-- **MP4 (MPEG-4):** This is a popular format (i.e `experiment_video.mp4`) for video data that balances file size and quality using lossy compression. MP4 is commonly used for videos and is widely compatible with many devices.
-
+-   **MP4 (MPEG-4):** This is a popular format (i.e `experiment_video.mp4`) for video data that balances file size and quality using lossy compression. MP4 is commonly used for videos and is widely compatible with many devices.
 
 #### e. Code files
 
-- **Python (.py):** Python is an open-source language, and .py files are plain text (i.e `analysis_script.py`), making them universally accessible and easy to share. They are widely used for data analysis, machine learning, and automation. 
+-   **Python (.py):** Python is an open-source language, and .py files are plain text (i.e `analysis_script.py`), making them universally accessible and easy to share. They are widely used for data analysis, machine learning, and automation.
 
-- **R (.R):** R scripts are used for statistical analysis and data visualization (i.e `data_processing_script.R`). They are similar to Python scripts in that they are plain text and highly portable within the R environment.
+-   **R (.R):** R scripts are used for statistical analysis and data visualization (i.e `data_processing_script.R`). They are similar to Python scripts in that they are plain text and highly portable within the R environment.
 
-- **Quarto (.qmd):** Quarto files are written in markdown syntax and can run Python or R code. It has multiple application including data analysis, written and web application. The sorces files foer the current website are .wmd files.
+-   **Quarto (.qmd):** Quarto files are written in markdown syntax and can run Python or R code. It has multiple application including data analysis, written and web application. The sorces files foer the current website are .wmd files.
 
-| Data Type              | Recommended Formats                   | Notes                                          |
-|------------------------|----------------------------------------|------------------------------------------------|
-| Tabular data            | CSV, TSV                              | Widely supported, non-proprietary               |
-| Text documents          | TXT, PDF/A                            | PDF/A is a long-term archiving format           |
-| Images (high-quality)   | TIFF, PNG                             | TIFF for lossless, PNG for smaller size         |
-| Geospatial data         | GeoTIFF, Shapefile                    | Ensure all Shapefile components are included    |
-| Audio data              | WAV, FLAC                             | WAV for uncompressed audio                     |
-| Video data              | MP4, MOV                              | MP4 is widely compatible, but lossy            |
-| Code                    | Python (.py), R (.R), Quarto (.qmd)   | Provide well-commented code and scripts        |
-
+| Data Type             | Recommended Formats                 | Notes                                        |
+|------------------|-------------------------|-----------------------------|
+| Tabular data          | CSV, TSV                            | Widely supported, non-proprietary            |
+| Text documents        | TXT, PDF/A                          | PDF/A is a long-term archiving format        |
+| Images (high-quality) | TIFF, PNG                           | TIFF for lossless, PNG for smaller size      |
+| Geospatial data       | GeoTIFF, Shapefile                  | Ensure all Shapefile components are included |
+| Audio data            | WAV, FLAC                           | WAV for uncompressed audio                   |
+| Video data            | MP4, MOV                            | MP4 is widely compatible, but lossy          |
+| Code                  | Python (.py), R (.R), Quarto (.qmd) | Provide well-commented code and scripts      |
 
 When choosing file format, consider the following:
 
-- **Interoperability:** Prefer formats that are widely supported across platforms and disciplines. For example, CSV files can be opened in nearly any statistical or spreadsheet software.
+-   **Interoperability:** Prefer formats that are widely supported across platforms and disciplines. For example, CSV files can be opened in nearly any statistical or spreadsheet software.
 
-- **Non-proprietary formats:** Open, non-proprietary formats (e.g., CSV, TXT, TIFF) are preferable for long-term data preservation, as they are not tied to specific software that could become obsolete. Also, they can be used for researchers without using costly software. 
+-   **Non-proprietary formats:** Open, non-proprietary formats (e.g., CSV, TXT, TIFF) are preferable for long-term data preservation, as they are not tied to specific software that could become obsolete. Also, they can be used for researchers without using costly software.
 
-- **Data integrity and fidelity:** For images, audio, and video, lossless formats like TIFF and WAV preserve data quality, whereas lossy formats like JPEG and MP4 reduce file size at the expense of some data loss. Use lossless formats when high fidelity is essential.
+-   **Data integrity and fidelity:** For images, audio, and video, lossless formats like TIFF and WAV preserve data quality, whereas lossy formats like JPEG and MP4 reduce file size at the expense of some data loss. Use lossless formats when high fidelity is essential.
 
-
-## Include metadata, a readme file, and relevant documentation 
+## Include metadata, a readme file, and relevant documentation
 
 Metadata and proper documentation are critical components of effective RDM. Metadata is data that accurately describes the research data. This is essential to provide context and essential information to understand, access, and reuse the data. Keep in mind that proper documentation ensures that datasets are comprehensible not only to those who originally collected the data but also to other researchers who may reuse it. Most of research data is inaccessible or unusable because they are not properly documented.
 
 Examples of metadata are:
 
-- **Descriptive metadata:** This information helps users find, identify, and understand the dataset. It includes details like the title of the dataset, the author(s), abstract, keywords, and a description of the contents.
+-   **Descriptive metadata:** This information helps users find, identify, and understand the dataset. It includes details like the title of the dataset, the author(s), abstract, keywords, and a description of the contents.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-Title: Climate Measurements for Coastal Regions (2023-2024) in Quebec, Canada.
-Author: Dr. Jane Doe, Coastal University
-Keywords: climate, temperature, humidity, precipitation, coastal zones, Quebec.
+
+Title: Climate Measurements for Coastal Regions (2023-2024) in Quebec, Canada. Author: Dr. Jane Doe, Coastal University Keywords: climate, temperature, humidity, precipitation, coastal zones, Quebec.
 :::
 
-- **Structural metadata:** The information specifies how the dataset is organized, including data formats, and potential relationships between different parts of the data/files.
+-   **Structural metadata:** The information specifies how the dataset is organized, including data formats, and potential relationships between different parts of the data/files.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-File type: CSV (comma-separated values)
-Structure: Columns represent temperature (°C), humidity (%), wind speed (km/h), and time (ISO 8601 format)
+
+File type: CSV (comma-separated values) Structure: Columns represent temperature (°C), humidity (%), wind speed (km/h), and time (ISO 8601 format)
 :::
 
-- **Administrative metadata:** This includes information about data management, access restrictions, licensing, and any related technical details (e.g., software used to generate the data).
+-   **Administrative metadata:** This includes information about data management, access restrictions, licensing, and any related technical details (e.g., software used to generate the data).
 
-::: callout-tip 
+::: callout-tip
 ## Example
-License: CC BY 4.0 (Creative Commons Attribution)
-Access: Publicly available through Zenodo repository
+
+License: CC BY 4.0 (Creative Commons Attribution) Access: Publicly available through Zenodo repository
 :::
 
-- **Technical metadata:** This includes information about the parameters, equipement and sofware used to generate the data.
+-   **Technical metadata:** This includes information about the parameters, equipement and sofware used to generate the data.
 
-::: callout-tip 
+::: callout-tip
 ## Example
-Microscope used for imaging: AxioZeiss Microscope A2
-Software used for imaging: Zen Blue 10.2
-Software used for image processing: Python
-Software used for data analysis: R (Quarto)
+
+Microscope used for imaging: AxioZeiss Microscope A2 Software used for imaging: Zen Blue 10.2 Software used for image processing: Python Software used for data analysis: R (Quarto)
 :::
 
 This metadata information is specified in different research data repositories like [Zenodo](https://zenodo.org/), [FRDR](https://www.frdr-dfdr.ca/repo/) and [OSF](https://osf.io/) or the readme file that the user accommodates when depositing the data.
 
-
 ### The readme file
 
+::: {layout-ncol="2"}
+<div>
 
-::::: {layout-ncol="2"}
-:::: {#first-column}
-A README file is a simple text file that explains the contents of a dataset. It can describe the data files, the folder structure, the available variables, and the methodology used to collect the data. This document is pivotal to contextualize and offer reuse opportunities for other uses. 
+A [README]{style="color:green;"} file is a simple text file that explains the contents of a dataset. It can describe the data files, the folder structure, the available variables, and the methodology used to collect the data. This document is pivotal to contextualize and offer reuse opportunities for other uses.
 
 **Elements in a readme file**
 
-- Author and affiliation
-- Data collection date
-- Description of the strcuture of the dataset
-- Description of files and naming conventions
-- Methodological information (how the data was generated/obtained)
-- License and access information
-- Relation with other research data
+-   Author and affiliation
+-   Data collection date
+-   Description of the structure of the dataset
+-   Description of files and naming conventions
+-   Methodological information (how the data was generated/obtained)
+-   License and access information
+-   Relation with other research data
 
 An example of a readme file can be found [here](https://g-772fa5.cd4fe.0ec8.data.globus.org/1/published/publication_850/submitted_data/README.txt)
-::::
 
-:::: {#second-column}
+</div>
+
+<div>
+
 ::: {style="text-align: center;font-size: 100%"}
-![Example of readme file](images/DescriptiveMetadata_czi.png){fig-alt="Screenshot showing an example of a readme file" fig-align="center" width=90%}
+![Example of readme file](images/DescriptiveMetadata_czi.png){fig-alt="Screenshot showing an example of a readme file" fig-align="center" width="90%"}
 :::
-::::
-:::::
 
-::: callout-tip 
+</div>
+:::
+
+::: callout-tip
 The readme file provides a description of a dataset as standalone object, independently of associated research articles.
 :::
 
+### The codebook
 
+::: {layout-ncol="2"}
+<div>
 
+A [CODEBOOK]{style="color:green;"} file, also called data dictionary, explain the variables and coding schemes present (generally) in a data table. Also, they codebooks describe how missing data is handled and can present other information like frequency or distribution.
 
+**Elements of a codebook**
 
+-   Names and description of the variables
+-   Type of variable (continuous, categorical)
+-   Range or levels of the variable
+-   Number of missing data and its representation
 
-::::: {layout-ncol="2"}
-:::: {#first-column}
-:::{style="text-align: left;font-size: 80%"}
-3.  Use [comprehensive metadata]{style="color:green;"} (readme/codebook) to [describe]{style="text-decoration: underline;"} and [contextualize]{style="text-decoration: underline;"} the data.
+A vignette to generate codebooks can be found [here](https://github.com/indepth-data/DataScience_Teaching/blob/main/resources/GeneratingCodebook_Vignette.pdf)
 
-4.  Implement [coding pipelines]{style="color:green;"} (R, Python) to transform the [raw data]{style="color:red;"} into [analysis data]{style="color:magenta;"} to extract information and analyze it.
-:::
-::::
+</div>
 
-:::: {#second-column}
-::: {style="text-align: center; font-size: 70%"}
-![Codebook example (https://domstat.med.ucla.edu/)](images/Codebook.jpg){fig-align="center" width="500" height="300"}
-:::
-::::
-:::::
+<div>
 
-::: callout-tip
-At the end, your dataset must be composed by [organized, clean, and validated data]{style="color:green;"}.
-:::
-
-# Working with tables
-
-## {{< bi file-earmark-spreadsheet>}} Tables are the core of scientific data {.center}
-
-::: {style="text-align: left;font-size: 70%"}
-Despite being the most common file type (.xls) for recording/storing data, tables are the most [poorly organized and unusable]{style="color:red;"} objects in research.
+::: {style="text-align: center;font-size: 100%"}
+![Example of a codebook](images/Codebook.png){fig-alt="Screenshot showing an example of a codebook" fig-align="center" width="80%"}
 :::
 
-::::: {layout-ncol="2"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 50%"}
-![from https://dansteer.wordpress.com/](images/BadTable1.webp){fig-align="center" width="600" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Courtesy of researcher](images/BadTable2.png){fig-align="center" width="600" height="300"}
-:::
-::::
-:::::
-
-## Examples from published research{.center}
-
-::::: {layout-ncol="2"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 50%"}
-![Zhao et al. (2024). Nature Comm. DOI: 10.1038/s41467-024-50836-6](images/BadTable2_Zhao(2024)_NatureComm.png){fig-align="center" width="400" height="400"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Balinda et al. (2024). Nature Comm. DOI: doi.org/10.1038/s41467-024-50558-9](images/BadTable2_Balinda(2024)_NatureComm.png){fig-align="center" width="400" height="400"}
-:::
-::::
-:::::
-
-## Examples from Crystal Lewis (2024) {.center}
-
-::::: {layout-ncol="2"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 50%"}
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-3.PNG)
-
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-4.PNG)
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-5.PNG)
-
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-6.PNG)
-:::
-::::
-:::::
-
-## Examples from Crystal Lewis (2024)
-
-
-
-::: {style="text-align: center;font-size: 50%"}
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-7.PNG){fig-align="center" width="500" height="200"}
-:::
-
-::: {style="text-align: center;font-size: 50%"}
-![Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-8.PNG){fig-align="center" width="600" height="200"}
-:::
-
-
-## {{< bi file-earmark-spreadsheet>}} Featuring a data table{.center} 
-
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 60%"} 
-![A typical long-format data table](images/GoodTable.png){fig-align="left" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 60%"}
-### Columns
-- {{< bi dropbox>}} [Variables collected]{style="color:green;"} with an instrument/software: intensity, area, number of cells, etc.
-- {{< bi device-ssd-fill>}} [Variables created:]{style="color:green;"} proportions, ratios, etc.
-- {{< bi calculator-fill>}} [Summary variables:]{style="color:green;"} sum scores, means, sd, etc. (Not in the same table)
-- {{< bi file-earmark-person-fill>}} [Identifier variables]{style="color:green;"} that you create to identify your samples (animal ID, Time point, condition).
-
-### Rows
-
-- {{< bi clipboard-data-fill>}} [Variable values]{style="color:green;"}: original or codified numeric or categorical entries for each column.
-
-:::
-::::
-:::::
-
-## {{< bi file-earmark-spreadsheet>}} Wide and long table formats{.center}
-
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 60%"} 
-![A typical wide-format data table, from Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-14.PNG){fig-align="left" width="600" height="350"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: left;font-size: 80%"} 
-In a table with [wide format]{style="color:green;"} {{< bi file-earmark-person-fill>}} [Each subject]{style="text-decoration: underline;"} occupies a [single row]{style="color:green;"} and has its associated variables in different columns:[subject]{style="color:orange;"}, [Id1, Id2,]{style="color:red;"}, [Var1, Var2]{style="color:gray;"} [Time 1, Time2, Time3]{style="color:magenta;"}.
+</div>
 :::
 
 ::: callout-tip
-This format is useful when different columns are [predictors]{style="color:green;"} (in a regression {{< bi bar-chart-line-fill>}}) of another set of columns. Example:   
-
-[Cells_3D]{style="color:green;"} ~ [Cells_2D + Cells_3D]{style="color:magenta;"}.
-::: 
-
-::::
-:::::
-
-## {{< bi file-earmark-spreadsheet>}} Wide and long table formats 
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 60%"} 
-![A typical wide-format data table, from Lewis (2024). DOI: 10.1201/9781032622835-3](images/Lewis_fig3-15.PNG){fig-align="left" width="600" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: left;font-size: 65%"} 
-In a table with [long format]{style="color:green;"} {{< bi file-earmark-person-fill>}} [Each subject]{style="text-decoration: underline;"} occupies [various rows]{style="color:green;"} and has its associated variables in [different rows:]{style="text-decoration: underline;"}    
-
-[subject]{style="color:orange;"}(repeat), [Id1, Id2 ]{style="color:red;"}(repeat), [Time (1, 2 , 3)]{style="color:magenta;"}.
+The readme file provides a description of a dataset as standalone object, independently of associated research articles.
 :::
 
-::: {.callout-tip .smaller}
-This format is useful when analyzing [time-lapse data]{style="color:green;"}, grouping different condition variables in a single column. [Example:]{style="text-decoration: underline;"}   
-
-[Cells]{style="color:green;"} ~ [TimePoint (1D, 2D, 3D)]{style="color:magenta;"}. 
-
-Long-format is usually more [efficient and suitable as a first choice]{style="color:green;"}.
-::: 
-
-::::
-:::::
-
-## {{< bi balloon-heart-fill>}} The best of all... {.center}  
-
-You can use R (or Python) and [Quarto](https://quarto.org/) to convert from long to wide table format, or visceversa. Check this [tutorial]{style="color:blue;"}.   
-
-::: {style="text-align: center;font-size: 60%"} 
-![Long to wide format (https://tavareshugo.github.io/)](images/LongToWide.PNG){fig-align="center" width="600" height="350"}
-:::
-
-
-## {{< bi file-earmark-font-fill>}} Provide metadata (readme file){.center}    
-
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: left;font-size: 100%"} 
-Your tables are [unintelligible]{style="color:red;"} if they are not accompanied by metadata [describing the content]{style="color:green;"}. Desirable (open) formats for readme files: [.txt, .pdf, .md]{style="color:magenta;"} (markdown). 
-:::
-::::
-
-::::{#second-column}
-::: {style="text-align: center;font-size: 70%"} 
-![Example of a readme file](images/Dataset_readme.png){fig-align="center" width="600" height="350"}
-:::
-::::
-:::::
-
-# Working with images
-
-## {{< bi card-image>}} Principles of working with images{.center} 
-
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 60%"} 
-![Manrique-Castano et al. (2024). DOI: DOI 10.17605/OSF.IO/3VG8J](images/BrainStaining.png){fig-align="left" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 60%"}
-- {{< bi card-image>}} When possible, convert [propietary files]{style="color:red;"} (i.e .czi) to [open formats]{style="color:green;"} with no compression (.tif).
-- {{< bi gear-fill>}} Share [technical]{style="color:green;"} (acquisition parameters) and [descriptive]{style="color:green;"} (context and content) [metadata]{style="color:green;"} along with the images.
-- {{< bi code-square>}} Use [FIJI, Python]{style="color:green;"} or related [coding/scripting software]{style="color:green;"} (prefered) to document image transformations (resize. background substraction, etc.). 
-- {{< bi code-square>}} Extract information/perform analysis using [coding/scripting software]{style="color:green;"} to ensure reproducibility. Please [avoid manual counts/analysis]{style="color:red;"}.
-:::
-::::
-:::::
-
-
-## {{< bi card-image>}} Transform images to open formats{.center} 
-
-::::: {layout-ncol="2" layout-valign="center"}
-
-:::: {#first-column}
-::: {style="text-align: center;font-size: 60%"} 
-![FIJI script to save .czi images as tiff. From Manrique-Castano et al. (2024). DOI: DOI 10.17605/OSF.IO/3VG8J](images/Transform_czi-tif.png){fig-align="left" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 70%"} 
-You can easy [transform]{style="color:green;"} your propietary files (.czi) to open formats (.tif) using i.e [FIJI]{style="color:green;"} [scripts](https://github.com/daniel-manrique/RDM_DataTraining/blob/main/resources/Transform_czi-tif.ijm).
-:::
-::: {.callout-caution}
-Saving .czi images as .tif using FIJI will result in [metadata loss]{style="color:red;"} (archived within the .czi file). 
-::: 
-
-::::
-:::::
-
-## Keep track of the metadata{.smaller} 
-
-::::: {layout-ncol="2"}
-
-:::: {#first-column}
-
-### {{< bi gear-fill>}} [Technical]{style="color:gray;"}
-
-Get the technical metadata from the .czi file as [.txt or .csv]{style="color:green;"} files (often for all images).  
-
-::: {style="text-align: center;font-size: 70%"} 
-![Example of technical metadata in FIJI: *image -> show info*](images/TechnicalMetadata_czi.png){fig-align="center" width="300" height="300"}
-:::
-::::
-
-:::: {#second-column}
-
-### {{< bi file-earmark-pdf-fill>}} [Descriptive]{style="color:orange;"}
-
-Generate a descritive readme explaining to understand the [provenance and naming conventions]{style="color:green;"} of the images.
-
-::: {style="text-align: center;font-size: 70%"} 
-![Example of [descriptive metadata](https://github.com/daniel-manrique/RDM_DataTraining/blob/main/resources/readme_images.txt)](images/DescriptiveMetadata_czi.png){fig-align="center" width="450" height="300"}
-:::
-
-::::
-:::::
-
-# Sharing data handling/analysis pipelines
+# Implement reproducible pipelines using code (R, python)
 
 ## A worrying research landscape
 
-::: {style="text-align: left;font-size: 80%"} 
-We live in a pandemic of [fraudulent and irreproducible science]{style="color:red;"}. 
+We live in a pandemic of [fraudulent and irreproducible science]{style="color:red;"} [@fang2012; @eckhartt2023]. This worrying landscape demands that as integral researchers [committed to best scientific practices]{style="color:green;"}, we share all data handling and analysis procedures. Fortunately, the optimal ways to do this are [free]{style="color:green;"} and have tremendous [support]{style="color:green;"} from a growing community ([Py Ladies](https://github.com/pyladies), [R Ladies](https://github.com/rladies)).
+
+
+::: {style="text-align: center; font-size: 60%"}
+![Increase in the number of retracted articles in the last three decades](images/Economist_Retractions.png){fig-alt="Illustration showing the increse in the number of retracted research articles from 1996 to 2023" fig-align="center" width=40%}
 :::
 
-::::: {layout-ncol="2" layout-valign="center"}
 
-:::: {#first-column}
-::: {style="text-align: left;font-size: 60%"} 
-![Increase in the number of retracted articles in the last three decades](images/Economist_Retractions.png){fig-align="left" width="450" height="450"}
-:::
-::::
-
-:::: {#second-column}
-:::{style="text-align: left;font-size: 70%"}
-This worrying landscape demands that as [integral researchers committed to best scientific practices]{style="color:green;"}, we share all [data handling and analysis procedures]{style="color:magenta;"} {{< bi code-square>}}. 
-:::
-
-::: {.callout-tip}
-Fortunately, the optimal ways to do this are [free]{style="color:green;"} and have tremendous [support]{style="color:green;"} from a [growing community]{style="color:magenta;"}.
-::: 
-
-::::
-:::::
-
-
-## Global supporting communities {.center}
-
-::::: {layout-ncol="2" layout-valign="center"}
-:::: {#first-column}
-::: {style="text-align: center;font-size: 100%"} 
-![[R Ladies](https://github.com/rladies)](images/Rladies_Logo.png){fig-align="center" width="300" height="300"}
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 100%"} 
-![[Py Ladies](https://github.com/pyladies)](images/pyladies_logo.png){fig-align="center" width="300" height="300"}
-:::
-::::
-:::::
-
-## Partners to handle analysis pipelines{.center}
-
-::::: {layout-ncol="2" layout-valign="center"}
-:::: {#first-column}
-
-### {{< bi code-square>}} R-studio/Quarto (R + Python)
-::: {style="text-align: center;font-size: 100%"} 
-![R-studio/quarto screen](images/R-studio_Screen.jpg){fig-align="center" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-### {{< bi github>}} GitHub (Version control)
-::: {style="text-align: center;font-size: 100%"} 
-![GitHub screen](images/GitHub_screen.jpg){fig-align="center" width="500" height="300"}
-:::
-::::
-:::::
-
-
-## With R-studio (R and Python) you can {.center}
-
-::::: {layout-ncol="2" layout-valign="center"}
-:::: {#first-column}
-
-### {{< bi code-square>}} R-studio/Quarto (R + Python)
-::: {style="text-align: center;font-size: 100%"} 
-![R-studio/quarto screen](images/R-studio_Screen.jpg){fig-align="center" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-:::{style="text-align: left;font-size: 75%"}
-- {{< bi file-earmark-spreadsheet-fill>}} Handle [data tables and variables](https://github.com/elalilab/Stroke_PDGFR-B_Reactivity/blob/main/Widefield_10x_ROIs_CD31-Pdgfrb_Coloc.qmd) using the R [Tidyverse](https://www.tidyverse.org/).  
-
-- {{< bi images>}} Analyze [images](https://github.com/elalilab/Stroke_PDGFR-B_Reactivity/blob/main/Confocal_40x_ROIs_Pdgfrb_Morpho_BatchScript.qmd) using Python [skimage](https://scikit-image.org/). 
-
-- {{< bi wallet-fill>}} Process [Flow cytometry](https://github.com/elalilab/Stroke_PDGFR-B_Reactivity/blob/main/FlowCytometry_Pdgfrb_Processing.qmd) files/data using R [FlowCore](https://bioconductor.org/packages/release/bioc/html/flowCore.html) from [BioConductor](https://bioconductor.org/).
-
-- {{< bi bandaid>}} Analyze [RNS-seq](https://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html) data using R [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) from [BioConductor](https://bioconductor.org/).
-
-- {{< bi bar-chart-line-fill>}} Perform state-of-the-art [statistical modeling](https://github.com/elalilab/Stroke_PDGFR-B_Reactivity/blob/main/Widefield_5x_Ipsilateral_Gfap_IntDen.qmd) using [brms](https://paulbuerkner.com/brms/) ([avoiding missused/irrelevant t-test and ANOVAs]{style="color:red;"}).
-
-- And all other things you can imagine...
-:::
-::::
-:::::
-
-
-## Keep track with version control{.center}
-
-::::: {layout-ncol="2" layout-valign="center"}
-:::: {#first-column}
-::: {style="text-align: center;font-size: 100%"} 
-![GitHub screen](images/GitHub_screen.jpg){fig-align="center" width="500" height="300"}
-:::
-::::
-
-:::: {#second-column}
-:::{style="text-align: left;font-size: 75%"}
-With [GitHub]{style="color:magenta;"} {{< bi github>}}  or [GitLab]{style="color:magenta;"} {{< bi gitlab>}} you can:
-
-- {{< bi database-fill-check>}} [Store]{style="color:green;"} your code/data in a secure place and [share it]{style="color:green;"} with collaborators and the public.
-
-- {{< bi subtract>}} Keep a [history of changes]{style="color:green;"} and version your code (v 1.0, 1.2, 2.0).
-
-- {{< bi folder-plus>}} [Link/render]{style="color:green;"} your code in different platforms (i.e [Open Science Framework Repository](https://osf.io/)). 
-
-- {{< bi clipboard2-pulse-fill>}} With your code you [support other researchers]{style="color:green;"} and contribute to a culture of [open and reproducible science]{style="color:green;"}.
-
-:::
-::::
-:::::
-
-# Organizing and sharing data
-
-## 1. Define a dataset schema/road
-
-At the [beginning]{style="color:green;"} (optimal) or [during]{style="color:green;"} (not bad) your research, define an organized scheme for data.
-
-::: callout-tip
-## Think about
-
--   {{< bi folder-fill >}} Folders/[directory structures]{style="color:green;"}
--   {{< bi filetype-tiff >}} Think about [file types/formats]{style="color:green;"}
--   {{< bi file-earmark-font-fill >}} Establish logical/descriptive [naming conventions]{style="color:green;"}
-:::
-
-Overall, ensure the schema is [logical and consistent]{style="color:green;"}. An external user must be able to understand the directory structure.
-
-## 2. Write a readme file 
-
-The (main) {{< bi file-earmark-medical-fill>}} [readme]{style="color:green;"} file is a guide to [understand the dataset]{style="color:green;"} and allow its reuse or execution.
+## Partners to handle analysis pipelines {.center}
 
 ::::: {layout-ncol="2"}
-:::: {#first-column}
-::: {style="text-align: center; font-size: 50%"}
-![From https://github.com/twbs/bootstrap-rubygem](images/readme.webp){fig-align="center" width="500" height="300"}
+:::: {#first-column} 
+::: {style="text-align: center;font-size: 100%"}
+![R-studio/quarto screen](images/R-studio_Screen.jpg){fig-alt="Screenshot showing the R-studio interface" fig-align="center" width="100%"}
 :::
 ::::
 
-:::: {#second-column}
-::: {style="font-size: 80%;"}
-There are templates/resources to guide the generation of readme files:
-- [Creating a README file](https://blog.datadryad.org/2023/10/18/for-authors-creating-a-readme-for-rapid-data-publication/)\
-- [Readme.so](https://readme.so/)\
-- [Readme.ai](https://readme-ai.streamlit.app/)
-:::
+:::: {#second-column} 
+
+**With R and R studio you can:**
+
+<i class="bi bi-file-earmark-spreadsheet-fill"></i> Handle [data tables]{style="color:green;"} and variables using the R Tidyverse.
+
+<i class="bi bi-images"></i> [Analyze images]{style="color:green;"} using Python skimage.
+
+<i class="bi bi-wallet-fill"></i> [Process Flow cytometry]{style="color:green;"} files/data using R FlowCore from BioConductor.
+
+<i class="bi bi-bandaid"></i> [Analyze RNS-seq]{style="color:green;"} data using R DESeq2 from BioConductor.
+
+<i class="bi bi-bar-chart-line-fill"></i> Perform state-of-the-art [statistical modeling]{style="color:green;"} using `brms` (avoiding missused/irrelevant t-test and ANOVAs).
+
+And all other things you can imagine…
 ::::
 :::::
 
-## Contents of a readme file
 
-::: r-fit-text
-Generally, a dataset readme file showcases:
-
--   {{< bi database-fill >}} A [dataset identifier]{style="color:green;"} showing aspects such as title, authors, data collection date, Geographic information.
--   {{< bi folder-fill >}} A [map of files/folders]{style="color:green;"} defining the hierarchy of folders and subfolders and its content. Here, the user can also define the naming conventions for files and folders.
--   {{< bi gear-fill >}} The [methodological information]{style="color:green;"} showcasing the methods for data collection/generation, analysis, and experimental conditions.
-
-::: {.callout-caution collapse="true"}
-## To refresh your memory
-The dataset is a standalone object (apart from the research article). Methods and instruments for data collection [MUST NOT]{style="color:red;"} be relegated to the research article.
-:::
-
--   {{< bi sd-card-fill >}} A set of [instructions and software]{style="color:green;"} for opening, handling and reproduce research pipelines.
-
--   {{< bi credit-card-2-front-fill >}} [Sharing and access information]{style="color:green;"} detailing permissions and conditions of use.
-:::
-
-## 3. Organize dataset folders
-
-And [organized scheme]{style="color:green;"} is the {{< bi key-fill >}} key to understand data structure.
+## Keep version control using git
 
 ::::: {layout-ncol="2"}
-:::: {#first-column}
-::: {style="text-align: center;font-size: 70%"}
-![From pexels.com](images/Matryoska.jpeg)
+:::: {#first-column} 
+::: {style="text-align: center;font-size: 100%"}
+![GitHub screen](images/GitHub_screen.jpg){fig-alt="Screenshot showing the GitHub website interface" fig-align="center" width="100%"}
 :::
 ::::
 
-:::: {#second-column}
-::: {style="text-align: center;font-size: 70%"}
-![File structure](images/files.png){width="75%"}
-:::
-::::
-:::::
+:::: {#second-column} 
+::: {style="text-align: left;font-size:100%"}
+**With GitHub or GitLab you can:**
 
-## {{< bi diagram-2-fill >}} Diving into the folder tree {.center}
+<i class="bi bi-database-fill-check"></i> [Store]{style="color:green;"} your code/data in a secure place and [share it]{style="color:green;"} with collaborators and the public.
 
-::::: {layout-ncol="2"}
+<i class="bi bi-subtract"></i> Keep a [history of changes]{style="color:green;"} and version your code (v 1.0, 1.2, 2.0).
 
-:::: {#first-column}
-::: callout-tip
-{{< bi diagram-3-fill >}} Plan/define [directory structures, file formats, and naming conventions]{style="text-decoration: underline;"}.
-:::
+<i class="bi bi-folder-plus"></i> [Link/render]{style="color:green;"} your code in different platforms (i.e [Open Science Framework Repository](https://osf.io/)).
 
-:::{style="text-align: left;font-size: 80%"}
-For example, [TIER 4.0](https://www.projecttier.org/tier-protocol/protocol-4-0/root/) is [systemic template]{style="color:green;"} to standardize and increasing transparency and reproducibility of research data. The user can [download](https://github.com/daniel-manrique/RDM_Training/blob/main/Templates/TIER4.0_DatasetTemplate.zip) a folder structure and adapt it to specific cases.
-:::
-
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Folder tree](images/tier.png){width="45%"}
+<i class="bi bi-clipboard2-pulse-fill"></i> With your code you [support other researchers]{style="color:green;"} and contribute to a culture of [open and reproducible science]{style="color:green;"}.
 :::
 ::::
 :::::
 
-## {{< bi diagram-3-fill >}} Organizing a data folder {.center}
 
-The [data]{style="color:green;"} {{< bi folder-fill >}} must be organized [logically and hierarchically]{style="color:green;"} according to the characteristics of each dataset.
 
-## {{< bi folder-fill >}} Input data
-
-Sharing the [input/raw data]{style="color:green;"} is a research integrity and data management best practice. The [Data_Input/]{style="color:orange;"} {{< bi folder-fill >}} can contain:
-
-::::: {layout-ncol="2"}
-:::: {#first-column}
-:::{style="text-align: left;font-size: 80%"}
-a) [Data files]{style="color:magenta;"} (stored in subfolders if necessary)
-
--   Original [images]{style="color:green;"} (.tiff, .czi)
--   Measuring device [output files]{style="color:green;"} (.txt, .csv)
--   Original registration [datasheets]{style="color:green;"} (.png, .csv, .xlxs)
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Folder tree](images/data_raw.png){width="90%"}
-:::
-::::
-:::::
-
-## 
-
-::: {style="text-align: left;font-size: 80%"} 
-b) A [metadata]{style="color:magenta;"} file/folder {{< bi folder-fill >}}
-
-This [Metadata/]{style="color:orange;"} {{< bi folder-fill >}} contains information about the listed data files to ensure understanding and usability. It may list:
-
--   [Data sources guide:]{style="color:green;"} It depicts how the data was [generated]{style="text-decoration: underline;"}. or its [provenance]{style="text-decoration: underline;"}.. This may include [methodological details]{style="text-decoration: underline;"}. and [technical metadata]{style="text-decoration: underline;"}..
--   [Codebooks / data dictionaries:]{style="color:green;"} Explain the [content of files]{style="text-decoration: underline;"}. (mainly .csv tables). They can be [.txt](https://osf.io/9n3gh) or [.csv-xlxs](https://osf.io/925sh) files.
-
-The aim of this resources is to [sustain the reuse]{style="color:green;"} of the data by providing a faithful and [sufficient description]{style="color:green;"} of the variables.
-
-:::
-
-## {{< bi folder-fill >}} Analysis data{.center}
-
-A [Data_Analysis/]{style="color:orange;"} {{< bi folder-fill >}} contains [processed files]{style="color:green;"}, those used to generate the research results.
-
-::::: {layout-ncol="2"}
-
-:::: {#first-column}
-::: {style="text-align: left; font-size: 80%"}
-Like the input data, this files contain a [codebook/data dictionary]{style="color:green;"}. Also, these files can be accompanied by a [Data_Appendix]{style="color:green;"} files that showcase basic descriptive statistics or show data distributions.
-:::
-::::
-
-:::: {#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Folder tree](images/data_processed.png){width="70%"}
-:::
-::::
-:::::
-
-## {{< bi folder-fill >}} Intermediate data (Optional) {.center}
-
-A [Data_Intermediate/]{style="color:orange;"} {{< bi folder-fill >}} may contain mid-step processed data, or pre-processed files as part of an analysis pipeline. Examples may be images 'masks' are machine learning classifiers used to further operate with images.
-
-## {{< bi folder-fill >}} Processing scripts
-
-::: r-fit-text
-::: {.callout-caution collapse="true"}
-The data you obtain from measurements may not be formatted and organized to analyze it and generate results.
-:::
-
-A [Scripts_Processing]{style="color:orange;"} {{< bi folder-fill >}} may contain scripts/code that prepare (or transform) the raw data (images, tables) for analysis [Data_Analysis/]{style="color:orange;"} {{< bi folder-fill >}}.
-
-[Examples of workflows:]{style="text-decoration: underline;"}
-
--   Dropping variables (subsetting the dataset)
--   Generating new variables (Perform computations, calculate means, etc.)
--   Combing different information sources (merging tables or files)
-
-::: callout-tip
-Yo can consider saving the generated intermediary files into the [Data_Intermediate/]{style="color:orange;"} {{< bi folder-fill >}}.
-:::
-:::
-
-## {{< bi lightbulb-fill >}} Keep in mind {.center}
-
-You will generate several processing scripts. [Logical naming conventions]{style="color:green;"} are the key to link the input/output data with the processing scripts.
-
-## {{< bi folder-fill >}} Analysis scripts
-
-:::::{layout-ncol="2"}
-
-::::{#first-column}
-
-::: {style="text-align: left;font-size: 70%"} 
-The [Scripts_Analisys]{style="color:orange;"} {{< bi folder-fill >}} host scripts/code to generate results that may be in the form of:
-
--   {{< bi card-image >}} Images
--   {{< bi file-bar-graph-fill >}} Figures
--   {{< bi table >}} Tables
--   {{< bi calculator-fill >}} Statistical models
-:::
-::::
-
-::::{#second-column}
-::: {style="text-align: center;font-size: 70%"}
-![Folder tree](images/scripts_processing.png){width="90%"}
-:::
-::::
-
-:::::
-
-::: callout-tip
-Generally speaking, this scripts import and handle the [Analysis data]{style="color:orange;"}.
-:::
-## {{< bi folder-fill >}} The output folder{.center}
-
-::::: {layout-ncol="2"}
-
-::::{#first-column}
-::: {style="text-align: left;font-size: 80%"}
-The [Output/]{style="color:orange;"} {{< bi folder-fill >}} contains subfolders storing the files generated by the analysis scripts in the form of:
-
--   {{< bi card-image >}} Images
--   {{< bi file-bar-graph-fill >}} Figures
--   {{< bi table >}} Tables
--   {{< bi calculator-fill >}} Statistical models
-:::
-::::
-
-::::{#second-column}
-::: {style="text-align: center;font-size: 50%"}
-![Folder tree](images/output.png){width="100%"}
-:::
-::::
-:::::
-
-# Data sharing checklist
-
-## {{< bi card-checklist >}} Sharing data (in repositories){.center}
-
-::: {style="text-align: left;font-size: 80%"}
-When you share data ensure its meets these characteristics:
-
-1.  {{< bi diagram-2-fill >}} [Your folders and files are organized in a clear and structured way]{style="color:green;"} (understandable for the community): Use [standardized file formats]{style="color:green;"} (e.g., CSV, TIFF) and check for consistency in [naming conventions]{style="color:green;"}.
-
-2.  {{< bi file-earmark-text-fill >}} [The metadata/readme is as complete as possible]{style="color:green;"} and allow to understand the dataset as standalone object, providing data [collection methods, processing steps, and relevant context]{style="text-decoration: underline;"}.
-
-3.  {{< bi file-person-fill >}} [Verify independent usability]{style="color:green;"}: data must be [complete and understandable]{style="text-decoration: underline;"} (Include any necessary instructions for data interpretation) without needing the accompanying research article.
-:::
-
-## In summary {.center}
-
-Be aware that the datatset is a research object to [serve the public and the scientific community]{style="color:green;"}, and that can be used (and cited) [independently]{style="color:green;"} of the research article.
-
-## Why not? {.center}  
-Think about articles as supplements to your dataset!!!

@@ -3,29 +3,29 @@ project:
   
 website: 
   page-navigation: true
-  title: "Making sharable documents with Quarto" 
-  site-url: "https://openscapes.github.io/quarto-website-tutorial" 
-  repo-url: https://github.com/openscapes/quarto-website-tutorial 
+  title: "Research Data Management and Analysis" 
+  site-url: "https://daniel-manrique.github.io" 
+  repo-url: https://github.com/indepth-data/DataScience_Teaching 
   repo-actions: [edit, issue]
   
   page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; CC-By Openscapes, 2024"
+    right: "This page is built using [Quarto](https://quarto.org/)."
+    left: "&copy; CC-By Daniel Manrique-Castano, 2024"
     
   sidebar:
-    logo: "images/openscapes_hex.png"
+    logo: "images/InDepth_Logo_hex.png"
     pinned: true
     align: center
     tools: 
       - icon: globe
-        href: https://openscapes.org
-        text: "Openscapes.org"
+        href: https://daniel-manrique.github.io
+        text: "InDepth website"
       - icon: github
-        href: https://github.com/openscapes/quarto-website-tutorial
-        text: "Quarto website tutorial"
+        href: https://daniel-manrique.github.io
+        text: "Personal website"
       - icon: twitter
-        href: https://twitter.com/openscapes
-        text: "Openscapes Twitter"         
+        href: https://twitter.com/danielneuroglia
+        text: "Daniel Manrique Twitter"         
 
     style: "docked"
     search: true
@@ -34,11 +34,12 @@ website:
       - href: index.qmd
         text: Welcome
       - explore.qmd
-      - section: quarto-workflows/index.qmd
+      - section: RDM/RDM-index.qmd
         contents: 
-          - quarto-workflows/browser.md
-          - quarto-workflows/rstudio.qmd
-          - quarto-workflows/jupyter.md 
+          - RDM/RDM-IntroRDM.qmd
+          - RDM/RDM-OrganizingData.qmd
+          - RDM/RDM-OrganizingTables.qmd
+          - RDM/RDM-SharingData.qmd
       - learning-more.qmd
       - href: transition-from-rmarkdown.qmd
         text: Transition from Rmd
