@@ -1,281 +1,279 @@
 ---
-title: Sharing research data
+title: Sharing and reusing research data
 
 bibliography: references.bib
 ---
 
+The world need to move to open science. Sharing and reusing research data are essential charcateristics of quality science, promoting transparency and collaboration. By making research data accessible to other researchers and the public, scientists can contribute to the collective knowledge base, allowing others to validate findings, combine datasets, or apply the data to new research questions. Nonetheless, to share data effectively, scientists require careful planning, clear documentation, and attention to ethical considerations.Here are benefits of sharing research data: 
 
-# Organizing and sharing data
+- Enhancing transparency and reproducibility: Replication and verification of results is critical for building trust in the scientific process. It also enables other researchers to scrutinize the methods and confirm that the conclusions are supported by the data and data analysis.
 
-## 1. Define a dataset schema/road
+- Fostering collaboration: Open access data promotes collaboration across disciplines and institutions. This helps to develop new insights or combine different datasets to answer broader research questions.
 
-At the [beginning]{style="color:green;"} (optimal) or [during]{style="color:green;"} (not bad) your research, define an organized scheme for data.
+- Maximizing the value of research: It is important to know that publicly funded research data, in particular, is a public resource. Sharing data ensures that it can be reused by others, maximizing the impact of the initial investment.
+
+
+# Preparing Data for Sharing
+
+Before sharing research data, it's important to ensure that the data is well-prepared, organized, and documented.Below we explore several steps to achieve this goal. 
+
+
+## Define a dataset schema/road
+
+At the [beginning]{style="color:green;"} (optimal) or [during]{style="color:green;"} (not bad) your research, the researcher need to define an organized scheme for data.
 
 ::: callout-tip
 ## Think about
+<i class="bi bi-folder-fill"></i> Folders/[directory structures]{style="color:green;"}
 
--   {{< bi folder-fill >}} Folders/[directory structures]{style="color:green;"}
--   {{< bi filetype-tiff >}} Think about [file types/formats]{style="color:green;"}
--   {{< bi file-earmark-font-fill >}} Establish logical/descriptive [naming conventions]{style="color:green;"}
+<i class="bi bi-filetype-tiff"></i> Think about [file types/formats]{style="color:green;"}
+
+<i class="bi bi-file-earmark-font-fill"></i> Establish logical/descriptive [naming conventions]{style="color:green;"}
 :::
 
-Overall, ensure the schema is [logical and consistent]{style="color:green;"}. An external user must be able to understand the directory structure.
+Overall, ensure that the data is free from errors, inconsistencies, and redundancies. The dataset must follow a clear structure, keep an accessible format, such as CSV and TIFF. At the ennd, an external user must be able to understand the directory structure.
 
-## 2. Write a readme file
 
-The (main) {{< bi file-earmark-medical-fill>}} [readme]{style="color:green;"} file is a guide to [understand the dataset]{style="color:green;"} and allow its reuse or execution.
+## Write a readme file
 
-::: {layout-ncol="2"}
-<div>
+The (main) [README]{style="color:green;"} file is a guide to [understand the dataset]{style="color:green;"} and allow its reuse or execution.
 
+::::: {layout-ncol="2"}
+:::: {#first-column} 
 ::: {style="text-align: center; font-size: 50%"}
-![From https://github.com/twbs/bootstrap-rubygem](images/readme.webp){fig-align="center" width="500" height="300"}
+![From https://github.com/twbs/bootstrap-rubygem](images/readme.webp){fig-align="left" width="100%"}
 :::
+::::
 
-</div>
+:::: {#second-column} 
+::: {style="font-size: 100%;"}
+There are templates/resources to guide the generation of readme files:
 
-<div>
+- [Creating a README file](https://blog.datadryad.org/2023/10/18/for-authors-creating-a-readme-for-rapid-data-publication/)
 
-::: {style="font-size: 80%;"}
-There are templates/resources to guide the generation of readme files: - [Creating a README file](https://blog.datadryad.org/2023/10/18/for-authors-creating-a-readme-for-rapid-data-publication/)\
 - [Readme.so](https://readme.so/)\
+
 - [Readme.ai](https://readme-ai.streamlit.app/)
 :::
 
-</div>
-:::
+::::
+:::::
 
-## Contents of a readme file
 
-::: r-fit-text
+### Contents of a readme file
+
 Generally, a dataset readme file showcases:
 
--   {{< bi database-fill >}} A [dataset identifier]{style="color:green;"} showing aspects such as title, authors, data collection date, Geographic information.
--   {{< bi folder-fill >}} A [map of files/folders]{style="color:green;"} defining the hierarchy of folders and subfolders and its content. Here, the user can also define the naming conventions for files and folders.
--   {{< bi gear-fill >}} The [methodological information]{style="color:green;"} showcasing the methods for data collection/generation, analysis, and experimental conditions.
+<i class="bi bi-database-fil"></i> A [dataset identifier]{style="color:green;"} showing aspects such as title, authors, data collection date, Geographic information.
 
-::: {.callout-caution collapse="true"}
+<i class="bi bi-folder-fill"></i> A [map of files/folders]{style="color:green;"} defining the hierarchy of folders and subfolders and its content. Here, the user can also define the naming conventions for files and folders.
+
+<i class="bi bi-gear-fill"></i> The [methodological information]{style="color:green;"} showcasing the methods for data collection/generation, analysis, and experimental conditions.
+
+<i class="bi bi-sd-card-fill"></i> A set of [instructions and software]{style="color:green;"} for opening, handling and reproduce research pipelines.
+
+<i class="bi bi-credit-card-2-front-fill"></i> [Sharing and access information]{style="color:green;"} detailing permissions and conditions of use.
+
+::: {.callout-caution}
 ## To refresh your memory
-
 The dataset is a standalone object (apart from the research article). Methods and instruments for data collection [MUST NOT]{style="color:red;"} be relegated to the research article.
 :::
 
--   {{< bi sd-card-fill >}} A set of [instructions and software]{style="color:green;"} for opening, handling and reproduce research pipelines.
+## Organize dataset folders
 
--   {{< bi credit-card-2-front-fill >}} [Sharing and access information]{style="color:green;"} detailing permissions and conditions of use.
-:::
+An [organized scheme]{style="color:green;"} is the {{< bi key-fill >}} key to understand data structure.
 
-## 3. Organize dataset folders
-
-And [organized scheme]{style="color:green;"} is the {{< bi key-fill >}} key to understand data structure.
-
-::: {layout-ncol="2"}
-<div>
-
+::::: {layout-ncol="2"}
+:::: {#first-column} 
 ::: {style="text-align: center;font-size: 70%"}
 ![From pexels.com](images/Matryoska.jpeg)
 :::
+::::
 
-</div>
 
-<div>
-
+:::: {#second-column} 
 ::: {style="text-align: center;font-size: 70%"}
 ![File structure](images/files.png){width="75%"}
 :::
+::::
+:::::
 
-</div>
-:::
-
-## {{< bi diagram-2-fill >}} Diving into the folder tree {.center}
+### <i class="bi bi-diagram-2-fill"></i> Diving into the folder tree
 
 ::: {layout-ncol="2"}
-<div>
-
+:::: {#first-column} 
 ::: callout-tip
-{{< bi diagram-3-fill >}} Plan/define [directory structures, file formats, and naming conventions]{style="text-decoration: underline;"}.
+<i class="bi bi-diagram-3-fill"></i> Plan/define [directory structures, file formats, and naming conventions]{style="text-decoration: underline;"}.
 :::
 
-::: {style="text-align: left;font-size: 80%"}
 For example, [TIER 4.0](https://www.projecttier.org/tier-protocol/protocol-4-0/root/) is [systemic template]{style="color:green;"} to standardize and increasing transparency and reproducibility of research data. The user can [download](https://github.com/daniel-manrique/RDM_Training/blob/main/Templates/TIER4.0_DatasetTemplate.zip) a folder structure and adapt it to specific cases.
-:::
+::::
 
-</div>
-
-<div>
-
+:::: {#second-column} 
 ::: {style="text-align: center;font-size: 50%"}
 ![Folder tree](images/tier.png){width="45%"}
 :::
+::::
+:::::
 
-</div>
-:::
+### <i class="bi bi-diagram-3-fill"></i> Organizing a data folder
 
-## {{< bi diagram-3-fill >}} Organizing a data folder {.center}
+The [data]{style="color:green;"} folder must be organized [logically and hierarchically]{style="color:green;"} according to the characteristics of each dataset.
 
-The [data]{style="color:green;"} {{< bi folder-fill >}} must be organized [logically and hierarchically]{style="color:green;"} according to the characteristics of each dataset.
+#### Input data
 
-## {{< bi folder-fill >}} Input data
+Sharing the [input/raw data]{style="color:green;"} is a research integrity and data management best practice. The [Data_Input/]{style="color:orange;"} folder can contain:
 
-Sharing the [input/raw data]{style="color:green;"} is a research integrity and data management best practice. The [Data_Input/]{style="color:orange;"} {{< bi folder-fill >}} can contain:
+::::: {layout-ncol="2"}
+:::: {#first-column} 
+::: {style="text-align: left;font-size: 100%"}
 
-::: {layout-ncol="2"}
-<div>
+A. [Data files]{style="color:magenta;"} (stored in sub folders if necessary).
 
-::: {style="text-align: left;font-size: 80%"}
-a)  [Data files]{style="color:magenta;"} (stored in subfolders if necessary)
+-   Original [images]{style="color:green;"} (.tiff, .czi).
 
--   Original [images]{style="color:green;"} (.tiff, .czi)
--   Measuring device [output files]{style="color:green;"} (.txt, .csv)
--   Original registration [datasheets]{style="color:green;"} (.png, .csv, .xlxs)
-:::
+-   Measuring device [output files]{style="color:green;"} (.txt, .csv).
 
-</div>
+-   Original registration [datasheets]{style="color:green;"} (.png, .csv, .xlxs).
 
-<div>
 
-::: {style="text-align: center;font-size: 50%"}
-![Folder tree](images/data_raw.png){width="90%"}
-:::
+B.  A [metadata]{style="color:magenta;"} file/folder
 
-</div>
-:::
-
-## 
-
-::: {style="text-align: left;font-size: 80%"}
-b)  A [metadata]{style="color:magenta;"} file/folder {{< bi folder-fill >}}
-
-This [Metadata/]{style="color:orange;"} {{< bi folder-fill >}} contains information about the listed data files to ensure understanding and usability. It may list:
+This [Metadata/]{style="color:orange;"} folder contains information about the listed data files to ensure understanding and usability. It may list:
 
 -   [Data sources guide:]{style="color:green;"} It depicts how the data was [generated]{style="text-decoration: underline;"}. or its [provenance]{style="text-decoration: underline;"}.. This may include [methodological details]{style="text-decoration: underline;"}. and [technical metadata]{style="text-decoration: underline;"}..
 -   [Codebooks / data dictionaries:]{style="color:green;"} Explain the [content of files]{style="text-decoration: underline;"}. (mainly .csv tables). They can be [.txt](https://osf.io/9n3gh) or [.csv-xlxs](https://osf.io/925sh) files.
+:::
+::::
+
+:::: {#second-column} 
+::: {style="text-align: center;font-size: 50%"}
+![Folder tree](images/data_raw.png){width="90%"}
+:::
+::::
+:::::
 
 The aim of this resources is to [sustain the reuse]{style="color:green;"} of the data by providing a faithful and [sufficient description]{style="color:green;"} of the variables.
-:::
 
-## {{< bi folder-fill >}} Analysis data {.center}
 
-A [Data_Analysis/]{style="color:orange;"} {{< bi folder-fill >}} contains [processed files]{style="color:green;"}, those used to generate the research results.
+#### Analysis data 
 
-::: {layout-ncol="2"}
-<div>
 
-::: {style="text-align: left; font-size: 80%"}
+::::: {layout-ncol="2"}
+:::: {#first-column} 
+::: {style="text-align: left; font-size: 100%"}
+
+A [Data_Analysis/]{style="color:orange;"} folder contains [processed files]{style="color:green;"}, those used to generate the research results.
+
 Like the input data, this files contain a [codebook/data dictionary]{style="color:green;"}. Also, these files can be accompanied by a [Data_Appendix]{style="color:green;"} files that showcase basic descriptive statistics or show data distributions.
 :::
+::::
 
-</div>
-
-<div>
-
+:::: {#second-column} 
 ::: {style="text-align: center;font-size: 50%"}
 ![Folder tree](images/data_processed.png){width="70%"}
 :::
+::::
+:::::
 
-</div>
-:::
-
-## {{< bi folder-fill >}} Intermediate data (Optional) {.center}
+#### Intermediate data (Optional)
 
 A [Data_Intermediate/]{style="color:orange;"} {{< bi folder-fill >}} may contain mid-step processed data, or pre-processed files as part of an analysis pipeline. Examples may be images 'masks' are machine learning classifiers used to further operate with images.
 
-## {{< bi folder-fill >}} Processing scripts
+#### Processing scripts
 
-::: r-fit-text
-::: {.callout-caution collapse="true"}
-The data you obtain from measurements may not be formatted and organized to analyze it and generate results.
-:::
+The data you obtain from measurements may not be formatted and organized to analyze it and generate results. A [Scripts_Processing]{style="color:orange;"} folder may contain scripts/code that prepare (or transform) the raw data (images, tables) for analysis [Data_Analysis/]{style="color:orange;"} folder.
 
-A [Scripts_Processing]{style="color:orange;"} {{< bi folder-fill >}} may contain scripts/code that prepare (or transform) the raw data (images, tables) for analysis [Data_Analysis/]{style="color:orange;"} {{< bi folder-fill >}}.
-
-[Examples of workflows:]{style="text-decoration: underline;"}
+**Examples of workflows:**
 
 -   Dropping variables (subsetting the dataset)
 -   Generating new variables (Perform computations, calculate means, etc.)
 -   Combing different information sources (merging tables or files)
 
 ::: callout-tip
-Yo can consider saving the generated intermediary files into the [Data_Intermediate/]{style="color:orange;"} {{< bi folder-fill >}}.
-:::
-:::
+- You can consider saving the generated intermediary files into the [Data_Intermediate/]{style="color:orange;"} folder.
 
-## {{< bi lightbulb-fill >}} Keep in mind {.center}
-
-You will generate several processing scripts. [Logical naming conventions]{style="color:green;"} are the key to link the input/output data with the processing scripts.
-
-## {{< bi folder-fill >}} Analysis scripts
-
-::: {layout-ncol="2"}
-<div>
-
-::: {style="text-align: left;font-size: 70%"}
-The [Scripts_Analisys]{style="color:orange;"} {{< bi folder-fill >}} host scripts/code to generate results that may be in the form of:
-
--   {{< bi card-image >}} Images
--   {{< bi file-bar-graph-fill >}} Figures
--   {{< bi table >}} Tables
--   {{< bi calculator-fill >}} Statistical models
+- You will generate several processing scripts. [Logical naming conventions]{style="color:green;"} are the key to link the input/output data with the processing scripts.
 :::
 
-</div>
 
-<div>
+#### Analysis scripts
 
+::::: {layout-ncol="2"}
+:::: {#first-column} 
+::: {style="text-align: left;font-size: 100%"}
+The [Scripts_Analisys]{style="color:orange;"} folder host scripts/code to generate results that may be in the form of:
+
+<i class="bi bi-card-image"></i> Images
+
+<i class="bi bi-file-bar-graph-fill"></i> Figures
+
+<i class="bi bi-table"></i> Tables
+
+<i class="bi bi-calculator-fill"></i> Statistical models
+:::
+::::
+
+:::: {#second-column} 
 ::: {style="text-align: center;font-size: 70%"}
 ![Folder tree](images/scripts_processing.png){width="90%"}
 :::
-
-</div>
-:::
+::::
+:::::
 
 ::: callout-tip
 Generally speaking, this scripts import and handle the [Analysis data]{style="color:orange;"}.
 :::
 
-## {{< bi folder-fill >}} The output folder {.center}
+#### The output folder
 
-::: {layout-ncol="2"}
-<div>
+::::: {layout-ncol="2"}
+:::: {#first-column}
+::: {style="text-align: left;font-size: 100%"}
 
-::: {style="text-align: left;font-size: 80%"}
-The [Output/]{style="color:orange;"} {{< bi folder-fill >}} contains subfolders storing the files generated by the analysis scripts in the form of:
+The [Output/]{style="color:orange;"} folder contains sub folders storing the files generated by the analysis scripts in the form of:
 
--   {{< bi card-image >}} Images
--   {{< bi file-bar-graph-fill >}} Figures
--   {{< bi table >}} Tables
--   {{< bi calculator-fill >}} Statistical models
+<i class="bi bi-card-image"></i> Images
+
+<i class="bi bi-file-bar-graph-fill"></i> Figures
+
+<i class="bi bi-table"></i> Tables
+
+<i class="bi bi-calculator-fill"></i> Statistical models
 :::
+::::
 
-</div>
-
-<div>
-
+:::: {#second-column}
 ::: {style="text-align: center;font-size: 50%"}
 ![Folder tree](images/output.png){width="100%"}
 :::
+::::
+:::::
 
-</div>
-:::
+# <i class="bi bi-card-checklist"></i> Sharing data (in repositories)
 
-# Data sharing checklist
+When you share data ensure its meets these characteristics:  
 
-## {{< bi card-checklist >}} Sharing data (in repositories) {.center}
+<i class="bi bi-diagram-2-fill"></i> [Your folders and files are organized in a clear and structured way]{style="color:green;"} (understandable for the community): Use [standardized file formats]{style="color:green;"} (e.g., CSV, TIFF) and check for consistency in [naming conventions]{style="color:green;"}.  
 
-::: {style="text-align: left;font-size: 80%"}
-When you share data ensure its meets these characteristics:
+<i class="bi bi-file-earmark-text-fill"></i> [The metadata/readme is as complete as possible]{style="color:green;"} and allow to understand the dataset as standalone object, providing data [collection methods, processing steps, and relevant context]{style="text-decoration: underline;"}.  
 
-1.  {{< bi diagram-2-fill >}} [Your folders and files are organized in a clear and structured way]{style="color:green;"} (understandable for the community): Use [standardized file formats]{style="color:green;"} (e.g., CSV, TIFF) and check for consistency in [naming conventions]{style="color:green;"}.
+<i class="bi bi-file-person-fill"></i> [Verify independent usability]{style="color:green;"}: data must be [complete and understandable]{style="text-decoration: underline;"} (Include any necessary instructions for data interpretation) without needing the accompanying research article.  
 
-2.  {{< bi file-earmark-text-fill >}} [The metadata/readme is as complete as possible]{style="color:green;"} and allow to understand the dataset as standalone object, providing data [collection methods, processing steps, and relevant context]{style="text-decoration: underline;"}.
 
-3.  {{< bi file-person-fill >}} [Verify independent usability]{style="color:green;"}: data must be [complete and understandable]{style="text-decoration: underline;"} (Include any necessary instructions for data interpretation) without needing the accompanying research article.
-:::
+# Best Practices for Data Reuse
 
-## In summary {.center}
+When reusing data, it’s essential to follow best practices to ensure datasets in a responsible manner. Data user can take into account the following points:
 
-Be aware that the datatset is a research object to [serve the public and the scientific community]{style="color:green;"}, and that can be used (and cited) [independently]{style="color:green;"} of the research article.
+- Cite the original dataset: Give proper attribution to the creators of the dataset. Repositories provide a DOI for datasets that include citation information. Citing datasets recognizes the contribution of the original researchers and maintains transparency in your work.
 
-## Why not? {.center}
+- Verify the licensing terms: Ensure that you are complying with the licensing terms set by the data owner. Some licenses may restrict commercial use, require attribution, or impose conditions on derivative works.
 
-Think about articles as supplements to your dataset!!!
+- Assess the data quality and relevance: Be aware that not all datasets are equally reliable or relevant to your research. Before reusing data, verify standards for quality and completeness based on the information provided by the depositors. 
+
+- Combine and integrate data carefully: When reusing data for meta-analysis or large-scale studies, pay close attention to how the datasets are combined. Ensure that variables are harmonized, units of measurement are consistent, and any discrepancies between datasets are resolved.
+
+#### In summary 
+
+Be aware that the dataset is a research object to [serve the public and the scientific community]{style="color:green;"}, and that can be used (and cited) [independently]{style="color:green;"} of the research article. **Why not?** Think about articles as supplements to your dataset!!!
+

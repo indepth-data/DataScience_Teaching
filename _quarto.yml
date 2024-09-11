@@ -33,20 +33,31 @@ website:
     contents:
       - href: index.qmd
         text: Welcome
-      - explore.qmd
+      - R-studioRepositories.qmd
       - section: RDM/RDM-index.qmd
         contents: 
           - RDM/RDM-IntroRDM.qmd
           - RDM/RDM-OrganizingData.qmd
           - RDM/RDM-OrganizingTables.qmd
           - RDM/RDM-SharingData.qmd
-      - learning-more.qmd
+      - section: Modeling/Modeling-index.qmd
+        contents: 
+          - Modeling/Modeling-Handling.qmd
+          - Modeling/Modeling-EDA.qmd
+          - Modeling/Modeling-Fit.qmd
+          - Modeling/Modeling-Diagnostics.qmd
+        
       - href: transition-from-rmarkdown.qmd
         text: Transition from Rmd
 
 
 format:
   html:
+    grid:
+        sidebar-width: 300px
+        body-width: 800px
+        margin-width: 300px
+        gutter-width: 2rem
     theme:
       light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
       dark: [cosmo, theme-dark.scss]

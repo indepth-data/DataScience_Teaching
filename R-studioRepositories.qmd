@@ -1,0 +1,102 @@
+---
+title: Setup R-studio and repositories
+bibliography: references.bib
+---
+
+The resources on this website use open/free software to handle and analyze data. The following will allow the user to setup R, R-studio and Python for the main applications.
+
+## Setup R-Studio
+
+In this first phase, we download and install R and R-studio to setup our data science project.
+
+1.  Install the last version of [Git](https://git-scm.com/downloads) on your computer.
+
+2.  Install [R 4.1.2](https://cran.r-project.org/bin/windows/base/old/4.1.2/).
+
+::: callout-warning
+Do not install the last version of R. I have identified problems with one of the main packages to use in these resources ([brms](https://paulbuerkner.com/brms/))
+:::
+
+3.  Install the last version of [R-studio desktop](https://posit.co/download/rstudio-desktop/).
+
+4.  Once installed, open R-studio and go to *Tools* \> *Global Options* \> *General* and make sure R is 4.1.2 is recognized and active as show bellow:
+
+::: {style="text-align: center;font-size: 100%"}
+![RStudio IDE highlighting the project name and files pane](images/R_Install.png){fig-alt="Screenshot of the RStudio IDE highlighting the General menu with R 4.1.2 active" fig-align="center"}
+:::
+
+5.  Also, click on the Git/SVN tab on the left, and make sure the box for "enable version control interface..." is checked and that the softaware recognizes the "Git executable" route. If it is not the case, indicate the route to the `git.exe` file in your Git folder installation.
+
+::: {style="text-align: center;font-size: 100%"}
+![Setup Git as version control for your project](images/SetupGit.png){fig-alt="Screenshot of the R-Studio IDE showing the window to setup Git as version control system for the project" fig-align="center"}
+:::
+
+6. After, run the following chunk in the console to install some required packages:
+
+```{r}
+#| eval: false
+
+install.packages(c("rmarkdown", "usethis"))
+```
+
+
+## Setup a version control (GitHub) repository 
+
+We use GitHub as a version control platform to administrate our research project. 
+
+6.  Create a GitHub repository to version control your project
+
+7.  Open a GitHub account (set a user name and password)
+
+8.  Go to *repositories* and click in the green [New repository]{style="color:green;"} button on the right upperside of the window.
+
+::: {style="text-align: center;font-size: 100%"}
+![GitHub New repository button](images/NewRepositoryButton.png){fig-alt="Screenshot of the GitHub website showing the location of the New repository button" fig-align="center"}
+:::
+
+9.  To setup a repository
+
+-   Indicate a repository name.
+-   Provide a short description (can be updated later).
+-   Select public or private
+-   check the "add a README file" box
+-   Choose a license (MIT is recommended)
+
+::: {style="text-align: center;font-size: 100%"}
+![GitHub New repository setup](images/NewRepositorySet.png){fig-alt="Screenshot of the GitHub website showing the fields to setup the github account" fig-align="center"}
+:::
+
+10. After installation is successful, we use the `usethis` package [@usethis] to Clone the GitHub repository. To do so, go to the repository website and click the [\< \> code]{style="color:green;"} button. A tap will open where you can copy the URL by clicking the double square icon.
+
+::: {style="text-align: center;font-size: 100%"}
+![Copy the repository url](images/CopyRepourl.png){fig-alt="Screenshot of the GitHub website showing the fields to copy the repository url" fig-align="center"}
+:::
+
+11. Then, in the R-Studio console, copy the following chunk to clone the GitHub repository:
+
+```{r}
+#| label: CloneGitHub 
+#| eval: false
+
+usethis::create_from_github(
+  "https://github.com/YOU/YOUR_REPO.git",
+  destdir = "~/path/to/where/you/want/the/local/repo/"
+)
+```
+
+where:
+
+-   "https://github.com/YOU/YOUR_REPO.git" is the address of your GitHub repository and
+-   "\~/path/to/where/you/want/the/local/repo/" is the local address (on your computer) where you want the GitHub repository to copy.
+
+::: callout-warning
+Choose a destination the parent folder as the cloning command will clone the repository by creating a folder with the same name of your repo.
+:::
+
+12. If everything went according to plan, you must see the Git tab on the enviroment panel (generally top right), as show in the image below.
+
+::: {style="text-align: center;font-size: 100%"}
+![Git tab in R-studio](images/GitTab.png){fig-alt="Screenshot of the R-studio IDE showing the Git tab activated after a repository is active" fig-align="center"}
+:::
+
+After the this setup is ready, we can start working in our new project!

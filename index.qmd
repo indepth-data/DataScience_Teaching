@@ -1,22 +1,19 @@
 ---
 title: "Learning Research Data Management and Data Science"
-subtitle: "Contribute to open, reproducible science"
+subtitle: "Education for open, reproducible science"
 ---
 
 ## Welcome {#welcome}
 
-These are the learning sources and courses on Research Data Management and analysis created by Daniel Manrique-Castano for InDepth Data Science Consulting.This web is accompanied by material hosted in an Open Science Framework (OSF) [repository](https://osf.io/cngt3/).
+These are the learning sources and courses on Research Data Management and analysis created by Daniel Manrique-Castano for InDepth Data Science Consulting. This web is accompanied by material hosted in an Open Science Framework (OSF) [repository](https://osf.io/cngt3/).
 
 ## Current modules
 
 Currently, this website contains the following modules:
 
--   [Champions Lessons Series](https://openscapes.github.io/series)
--   [Openscapes Approach Guide](https://openscapes.github.io/approach-guide/)
--   [NASA Earthdata Cloud Cookbook](https://nasa-openscapes.github.io/earthdata-cloud-cookbook/)
--   [2021 NASA Cloud Hackathon](https://nasa-openscapes.github.io/2021-Cloud-Hackathon/)
--   [Faylab Lab Manual](https://thefaylab.github.io/lab-manual/)
--   [A Quarto tip a day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/), by Mine Çetinkaya-Rundel
+-   [Setup R studio and repositories](https://daniel-manrique.quarto.pub/rdm-datascience/R-studioRepositories.html)
+-   [Research data management (RDM)](https://daniel-manrique.quarto.pub/rdm-datascience/RDM/RDM-index.html)
+-   [Principles of statistical modeling](https://daniel-manrique.quarto.pub/rdm-datascience/Modeling/Modeling-index.html)
 
 ## About
 
