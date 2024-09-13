@@ -1,5 +1,133 @@
 ---
 title: Fit linear models
-
+bibliography: references.bib
 ---
 
+R counts on multiple packages and methods to fit models to data. Here, we'll focus on the `brms` package [@burkner2017; @burkner2018] by [Paul Bürkner](http://paulbuerkner.com/). `brms` [@brms] is currently the more advanced and flexible package to fit statistical models.
+
+Personally, I went to many R-studio crashes when working with last R versions (4.2, 4.3, 4.4) and `brms`. I was using for a long time R 4.1.2, which was the last version running `brms` without problem. However, I recently found a solution in [Stack Overflow](https://stackoverflow.com/questions/72168874/rstan-and-brms-cause-r-and-rstudio-session-abort) for R 4.4 by re installing Stan and some dependencies, following by `brms`, as show in the following chunk.
+
+```{r}
+install.packages(c("BH", "StanHeaders", "Rcpp", "RcppEigen", "RcppParallel", "inline", "loo", "pkgbuild", "rstan"))
+install.packages("brms")
+```
+
+If the preceding does not work for you, I recommend to work using [R1 4.1.2](https://cran.r-project.org/bin/windows/base/old/4.1.2/).
+
+That said, let's explore some modeling alternatives for our data on GFAP intensity. This is data derived from histological staining of mouse brains which were submitted to cerebral ischemia to study brain regeneration and glial scaring. In the [previous chapter](Modeling-EDA), we saw that `DPI` and `Condition` are factors that affect GFAP intensity in a different manner. By fitting statistical models, we can estimate parameters with their respective uncertainty to perform scientific inference.
+
+# Setting a statistical model
+
+The first step is to formulate a motivated statistical model that help us to understand the relations between our grouping variables, in this case, called *predictors*, and the *response* variable, GFAP intensity.
+
+# Statistical modeling for GFAP reactivity
+
+We use the `brms` package [@brms; @burkner2017] to run Bayesian modeling. We employ weakly informative priors in all the cases to optimize the Markov chain Monte Carlo (MCMC) and the exploration of the parameter space.
+
+We fit the following models to analyze the expression of GFAP:
+
+-   **Gfap_IntDen_Mdl1:** We use `DPI` as a linear predictor for GFAP integrated density with the notation:
+
+$$
+Gfap\_Intensity_i = \beta_0 + \beta_1 \times DPI\_num_i + \epsilon_i
+$$ {#eq-Gfap-DPI_num}
+
+Where:
+
+-   \$\beta\_0 \$ is the intercept, representing the baseline GFAP intensity when DPI_num is zero (our SHAM animals).
+
+-   $beta_1$ represents the effect of DPI_num on Gfap_Intensity. That is, it indicates how the GFAP intensity changes for each additional day post-injury.
+
+-   $\epsilon_i$ is the error term, the residual variance or variance not explained by the fitted model.
+
+# Fit the proposed model
+
+`brms` is a package develop in the context of Bayesian statistics [@kruschke2017]. It is beyond the scope of this book to discuss the details of this approach, although we will address some particular aspects in other sections. I recommend the reader to refer to Doing Bayesian Statistics [@kruschke2014], Statistical Rethinking [@mcelreath2020], or Bayes Rules [@johnson2022].
+
+The `brm` function to fit the models is accompanied by multiple arguments to help the convergence of the Markov Chain Monte Carlo (MCMC) chains. This include default priors to fit the model. We'll explore concepts related to priors in other sections of this resource. We start by setting the model formula and looking the parameters the model will estimate.
+
+```{r}
+#| label: Gfap_SetModel
+
+library(brms)
+
+Gfap_Mdl1 <- bf(Gfap_Intensity ~ DPI_num)
+
+get_prior(Gfap_Mdl1, Table_Clean)
+```
+
+The preceding reveals that our intended model will fit parameters for `DPI_num` as a numerical coefficient, toguther with an intercept and a sigma (error, non explained variance) value. Let-s proceed to fit the model.
+
+```{r}
+#| label: Gfap_FitModel
+
+library(brms)
+
+Gfap_Fit1 <-
+  brm(
+    data = Table_Clean,
+    formula = Gfap_Mdl1,
+    chains = 4,
+    cores = 4,
+    warmup = 2500,
+    iter = 5000,
+    seed = 8807,
+    control = list(adapt_delta = 0.99, max_treedepth = 15),
+    file = "resources/Gfap_Fit1.rds",
+    file_refit = "never"
+  )
+```
+
+The model is save a as `.rds` object (Gfap_Fit1.rds), which can (and must) be share in a scientific repository. This model can be use for many different purposes, including validation, visualization and aggregation of research results.
+
+# See model results
+
+The next step is to visualize the numerical results of our model. For this purpose, we use the `performance` package [@ludecke2021] from the `easystats` bundle [@easystats]. This summaries in a table the estimated parameters together wit its uncertainty. You me found messages related to p-values. We do not care about those messages as we are not dealing with p-values. Those are entities usless for scientific inference. WE focus in parameter estimation and uncertainty.  
+
+```{r}
+#| label: Gfap_ModelSummary
+
+library(easystats)
+
+model_parameters(Gfap_Fit1)
+```
+Take a a moment to take a look on the results and start making sense of it. In the first place, we can focus on the intercept `162`. This tells us that in healthy animals (DPI = 0, SHAM) the estimated GFAP intensity is `162`. and can be as low as `113` and as high as `210` if we consider a 95% credible interval (95% cI). Please note that credible intervals, derived from Bayesian statistics, are not the same that more commonly used confidence intervals. 
+
+The next coefficient, `DPI_num` is revealing that our model estimates an increase of `6.7` in Gfap intensity for each additional day post-injury. The estimated range for this coefficient is from 3.73 to 9.78, suggesting a consistent and positive relationship between DPI_num and GFAP intensity. 
+
+Finally, the sigma term, `116 95%CI = 95-142` suggests that there is considerable variability in GFAP intensity that it is not explain by the DPI in our fitted model. We can replace the statistical terms in @eq-Gfap-DPI_num as follows:  
+
+$$
+Gfap\_Intensity_i = 162 + 6.7 \times DPI\_num_i + 116
+$$
+More importantly, are this values relevant? Here, we do not consider the misleading and useless concept of "statistical significance" based on p-values. Rather, we draw conclusions using scientific knowledge, based on the limits of our model, and the estimated parameters and their uncertainty. I consider that the uncertainty in our model is huge and, based on the preliminary plots, I have reasons to suspect that the model does not offer a fair accuracy for the parameters estimates. We can build more arguments after we perform additional steps. 
+
+Before continue, take into account that you can visualize/export the table parameters using additional packages: 
+
+```{r}
+library(sjPlot)
+
+tab_model(Gfap_Fit1)
+```
+
+
+# Visualize the fitted model
+
+```{r}
+conditional_effects(Gfap_Fit1, 
+                    re_formula = NULL,
+                    rug = TRUE,
+                    points = TRUE) 
+```
+
+
+
+
+# References
+
+::: {#refs}
+:::
+
+```{r}
+sessionInfo()
+```

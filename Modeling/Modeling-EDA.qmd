@@ -4,3 +4,162 @@ title: Exploratory data analysis
 bibliography: references.bib
 ---
 
+It is pivotal to understand the distribution of the dataset before applying advanced analyses or conduct statistical modeling. An initial visualization allows researchers to recognize the distribution of data, identify patterns, trends, and extreme values. This is the point where we can make our first hypothesis about the potential relationships between our variables. Exploratory data analysis (EDA) is easily done using `ggplot2`[@ggplot2], that make it straightforward to plot our data. Throughout the book we will explore other packages for this purpose.
+
+# Load the dataset
+
+We'll use the dataset prepared in the previous [chapter](Modeling-Handling.qmd). In case this data is not present in the environment, we start by loading it:
+
+```{r}
+#| label: Table_Load
+#| tbl-cap: "Dataset for analysis"
+
+Table_Clean <- read.csv(
+  file = "resources/Table_Clean.csv",
+  header = TRUE
+)
+
+str(Table_Clean)
+gt::gt(Table_Clean[1:10, ])
+```
+
+As we loaded the table from the source file, note that `str` tells us that `DPI`, and `Condition` are mapped as characters despite we have established organized factor levels for them previously. Therefore, we expend a chunk in this chapter to setup the levels for these two variables using dplyr [@dplyr].
+
+```{r}
+library(dplyr)
+
+Table_Clean <- Table_Clean %>%
+  mutate(
+    # Set factor levels for Condition
+    Condition = factor(Condition, levels = c("SHAM", "MCAO")),
+    DPI = factor(DPI, levels = c("3D", "7D", "14D", "30D"))
+  )
+
+str(Table_Clean)
+```
+
+# Set a plot theme
+
+Before using `ggplot` to visualize our data, we'll create a theme for visualization using arguments for the `theme` function. There are hundreds of feasible aesthetics we can apply to our plots. I recommend addressing [R Graphics Cookbook](https://r-graphics.org/) [@chang] or [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) [@wickham2016].
+
+```{r}
+#| label: Plot_Theme
+
+library(ggplot2)
+
+Plot_theme <- theme_classic() +
+  theme(
+      plot.title = element_text(size=18, hjust = 0.5, face="bold"),
+      plot.subtitle = element_text(size = 10, color = "black"),
+      plot.caption = element_text(size = 12, color = "black"),
+      axis.line = element_line(colour = "black", linewidth = 1.5, linetype = "solid"),
+      axis.ticks.length=unit(7,"pt"),
+     
+      axis.title.x = element_text(colour = "black", size = 16),
+      axis.text.x = element_text(colour = "black", size = 16, angle = 0, hjust = 0.5),
+      axis.ticks.x = element_line(colour = "black", linewidth = 1),
+      
+      axis.title.y = element_text(colour = "black", size = 16),
+      axis.text.y = element_text(colour = "black", size = 16),
+      axis.ticks.y = element_line(colour = "black", linewidth = 1),
+      
+      legend.position="right",
+      legend.direction="vertical",
+      legend.title = element_text(colour="black", face="bold", size=12),
+      legend.text = element_text(colour="black", size=10),
+      
+      plot.margin = margin(t = 10,  # Top margin
+                             r = 2,  # Right margin
+                             b = 10,  # Bottom margin
+                             l = 10) # Left margin
+      ) 
+```
+
+# Plot the data
+
+In this case, we'll perform EDA assuming that our variable of interest is `Gfap_Intensity`, which maps the intensity of this marker in the brains of animals after experimental cerebral ischemia. Please consider that, as many variables in cellular and molecular neuroscience, we can consider arbitrary the units for this variable. Its interpretation is only relative to analogous measurements performed, exclusively, in the same staining batch. Samples from different experiments are not comparable in this case.
+
+We'll perform different visualization strategies for illustration purposes. First, we start by visualizing the distribution of the data by condition using the `ggrain` package [@ggrain] and additional aesthetics.
+
+```{r}
+#| label: fig-EDA_Rain
+
+library(ggplot2)
+library(ggrain)
+
+ggplot(
+  Table_Clean,
+  aes(
+    y = Gfap_Intensity,
+    x = 1,
+    fill = Condition
+  )
+) +
+  geom_rain(alpha = .5) +
+  scale_y_continuous(name = "GFAP intensity") +
+  scale_x_continuous(
+    name = "Density"
+  ) +
+  Plot_theme +
+  coord_flip()
+```
+@fig-EDA_Rain Shows the density distribution accompanied by an informative boxplot and raw data points. It is informative to be aware about the distribution per Condition, which do not overlap. This implies that condition it a factor strongly influencing the intensity of GFAP. It is worth to model this aspect to optain parameters and uncertainty. In addition, please observe that data points in the sham condition is close to zero. This will be relevant in further steps. 
+
+Now, let's visualize the distribution of data per `DPI`, mapping this variable as a factor. We'll use just boxplots with raw data points.
+
+```{r}
+#| label: fig-EDA_Box
+
+ggplot(
+  Table_Clean,
+  aes(
+    x = DPI,
+    y = Gfap_Intensity,
+    color = Condition
+  )
+) +
+  geom_point(position = position_jitter(width = 0.1)) +
+  geom_boxplot(width = 0.5, outlier.color = NA, fill = NA) +
+  labs(y = "GFAP intensity") +
+  Plot_theme
+```
+@fig-EDA_Box shows that DPI influence the GFAP expression in MCAO but not sham animals. These allow us to visualize the both grouping factors `Condition` and `DPI` affect the expression of GFAP in a specific manner. This provides first insights and ideas to establish our modelling strategy. 
+
+Let's make a last visualization to illustrate other aspects of the data. This time, we'll visualize `DPI_num` (DPI as numeric variable) and `Gfap_intensity`. In this case, we transformed the `SHAM`   condition into a baseline value ([see](Modeling-Handling.qmd) the previous chapter).   
+
+
+
+```{r}
+#| label: fig-EDA_Scattter
+
+ggplot(
+  Table_Clean,
+  aes(
+    x = DPI_num,
+    y = Gfap_Intensity
+  )
+) +
+  geom_point() +
+  geom_smooth(
+    method = "lm",
+    se     = TRUE,
+    color  = "black"
+  ) +
+  labs(
+    y = "GFAP intensity",
+    x = "Days post-ischemia (DPI)") +
+  Plot_theme
+```
+@fig-EDA_Scattter shows a fitted line (linear model) to the data that reveals a raising trend. However, we see that this fitted line does not capture properly the points, specially, at 0 and 30 DPI. This strongly suggest that modelling this data using a linear model will have strong limitations and a low accuracy in the estimated parameters. It may be suitable to use a non-linear model to obtain more precise parameters.  
+
+Having first insights from our data, we can proceed to [statistical modeling](Modeling-Fit.qmd)  
+
+# References
+
+::: {#refs}
+:::
+
+
+```{r}
+sessionInfo()
+```
