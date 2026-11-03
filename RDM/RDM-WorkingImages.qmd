@@ -1,0 +1,80 @@
+---
+title: Working with images
+
+bibliography: references.bib
+---
+
+## {{< bi card-image>}} Principles of working with images {.center}
+
+::: {layout-ncol="2" layout-valign="center"}
+<div>
+
+::: {style="text-align: center;font-size: 60%"}
+![Manrique-Castano et al. (2024). DOI: DOI 10.17605/OSF.IO/3VG8J](images/BrainStaining.png){fig-align="left" width="500" height="300"}
+:::
+
+</div>
+
+<div>
+
+::: {style="text-align: center;font-size: 60%"}
+-   {{< bi card-image>}} When possible, convert [propietary files]{style="color:red;"} (i.e .czi) to [open formats]{style="color:green;"} with no compression (.tif).
+-   {{< bi gear-fill>}} Share [technical]{style="color:green;"} (acquisition parameters) and [descriptive]{style="color:green;"} (context and content) [metadata]{style="color:green;"} along with the images.
+-   {{< bi code-square>}} Use [FIJI, Python]{style="color:green;"} or related [coding/scripting software]{style="color:green;"} (prefered) to document image transformations (resize. background substraction, etc.).
+-   {{< bi code-square>}} Extract information/perform analysis using [coding/scripting software]{style="color:green;"} to ensure reproducibility. Please [avoid manual counts/analysis]{style="color:red;"}.
+:::
+
+</div>
+:::
+
+## {{< bi card-image>}} Transform images to open formats {.center}
+
+::: {layout-ncol="2" layout-valign="center"}
+<div>
+
+::: {style="text-align: center;font-size: 60%"}
+![FIJI script to save .czi images as tiff. From Manrique-Castano et al. (2024). DOI: DOI 10.17605/OSF.IO/3VG8J](images/Transform_czi-tif.png){fig-align="left" width="500" height="300"}
+:::
+
+</div>
+
+<div>
+
+::: {style="text-align: center;font-size: 70%"}
+You can easy [transform]{style="color:green;"} your propietary files (.czi) to open formats (.tif) using i.e [FIJI]{style="color:green;"} [scripts](https://github.com/indepth-data/DataScience_Teaching/blob/main/resources/Transform_czi-tif.ijm).
+:::
+
+::: callout-caution
+Saving .czi images as .tif using FIJI will result in [metadata loss]{style="color:red;"} (archived within the .czi file).
+:::
+
+</div>
+:::
+
+## Keep track of the metadata {.smaller}
+
+::: {layout-ncol="2"}
+<div>
+
+### {{< bi gear-fill>}} [Technical]{style="color:gray;"}
+
+Get the technical metadata from the .czi file as [.txt or .csv]{style="color:green;"} files (often for all images).
+
+::: {style="text-align: center;font-size: 70%"}
+![Example of technical metadata in FIJI: *image -\> show info*](images/TechnicalMetadata_czi.png){fig-align="center" width="300" height="300"}
+:::
+
+</div>
+
+<div>
+
+### {{< bi file-earmark-pdf-fill>}} [Descriptive]{style="color:orange;"}
+
+Generate a descritive readme explaining to understand the [provenance and naming conventions]{style="color:green;"} of the images.
+
+::: {style="text-align: center;font-size: 70%"}
+![Example of [descriptive metadata](https://github.com/indepth-data/DataScience_Teaching/blob/main/resources/readme_images.txt)](images/DescriptiveMetadata_czi.png){fig-align="center" width="450" height="300"}
+:::
+
+</div>
+:::
