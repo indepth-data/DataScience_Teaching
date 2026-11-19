@@ -1,5 +1,27 @@
 ---
 title: Principles of statistical modeling 
-
 ---
 
+What is Statistical Modeling?
+
+Statistical modeling is the process of creating a representation of a real-world process using mathematics/statistics. Modeling involves identifying the underlying patterns and relationships within data to construct theoretically motivated models that can explain observations, make predictions, or test hypotheses.
+
+Statistical modeling comprises:
+
+- Variables: The measurable characteristics or attributes that can vary among subjects or observations or over time.
+- Parameters: The constants in the model that quantify the relationship between variables.
+- Assumptions: The conditions under which the model operates, such as the distribution of errors or the independence of observations.
+
+Statistical modelling comprise a wide range of approximations that include but it is not limited to: 
+
+- Linear Regression Models: Describe the linear relationship between a dependent variable and one or more independent variables.
+- Generalized Linear Models (GLMs): Extend linear models to accommodate non-normal response distributions.
+- Time Series Models: Analyze data points collected over time.
+- Machine Learning Models: Utilize algorithms to train systems and make predictions.
+
+This chapter contains the following sections:
+
+-   [Handling data tables](Modeling-Handling.qmd)
+-   [Exploratory data analysis](Modeling-EDA.qmd)
+-   [Fit linear models](Modeling-Fit.qmd)
+-   [Model diagnostics](Modeling-Diagnostics.qmd)

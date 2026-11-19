@@ -36,7 +36,10 @@ Table_Clean <- Table_Clean %>%
   )
 
 str(Table_Clean)
+
+saveRDS(Table_Clean, "resources/Table_Clean.rds" )
 ```
+We take advantage and save the table as .rds object to load it in future occasions with the properties we just setup. 
 
 # Set a plot theme
 
@@ -73,6 +76,8 @@ Plot_theme <- theme_classic() +
                              b = 10,  # Bottom margin
                              l = 10) # Left margin
       ) 
+
+saveRDS(Plot_theme, "resources/Plot_Theme.rds")
 ```
 
 # Plot the data

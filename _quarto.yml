@@ -46,11 +46,7 @@ website:
           - Modeling/Modeling-EDA.qmd
           - Modeling/Modeling-Fit.qmd
           - Modeling/Modeling-Diagnostics.qmd
-        
-      - href: transition-from-rmarkdown.qmd
-        text: Transition from Rmd
-
-
+      
 format:
   html:
     grid:
